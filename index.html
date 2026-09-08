@@ -408,10 +408,8 @@ function getBengaliDate(date){
 
 function renderCalendar(){
 
-    const calendar =
-        document.getElementById("calendar");
-
-    calendar.innerHTML="";
+    const calendar = document.getElementById("calendar");
+    calendar.innerHTML = "";
 
     document.getElementById("monthName").innerText =
         englishMonths[currentMonth];
@@ -419,56 +417,54 @@ function renderCalendar(){
     document.getElementById("yearName").innerText =
         currentYear;
 
+    // First weekday of the month
+    // Sunday = 0, Monday = 1 ... Saturday = 6
+    const firstDay = new Date(
+        currentYear,
+        currentMonth,
+        1
+    ).getDay();
 
-    let firstDay =
-        new Date(currentYear,currentMonth,1).getDay();
+    // Number of days in the month
+    const totalDays = new Date(
+        currentYear,
+        currentMonth + 1,
+        0
+    ).getDate();
 
-    let totalDays =
-        new Date(currentYear,currentMonth+1,0).getDate();
 
+    // Empty cells before the first date
+    for(let i = 0; i < firstDay; i++){
 
-    /*
-       Empty spaces before first day
-    */
+        const emptyCell = document.createElement("div");
 
-    for(let i=0;i<firstDay;i++){
+        emptyCell.className = "day empty";
 
-        let empty =
-            document.createElement("div");
-
-        empty.className="day";
-
-        calendar.appendChild(empty);
+        calendar.appendChild(emptyCell);
     }
 
 
-    /*
-       Create days
-    */
+    // Add all dates
+    for(let day = 1; day <= totalDays; day++){
 
-    for(let day=1;day<=totalDays;day++){
+        const date = new Date(
+            currentYear,
+            currentMonth,
+            day
+        );
 
-        let date =
-            new Date(currentYear,currentMonth,day);
+        const bengali = getBengaliDate(date);
 
-        let bengali =
-            getBengaliDate(date);
+        const cell = document.createElement("div");
 
-
-        let cell =
-            document.createElement("div");
-
-        cell.className="day";
+        cell.className = "day";
 
 
-        /*
-           Highlight today
-        */
-
+        // Highlight today's date
         if(
-            day===currentDate.getDate() &&
-            currentMonth===currentDate.getMonth() &&
-            currentYear===currentDate.getFullYear()
+            day === currentDate.getDate() &&
+            currentMonth === currentDate.getMonth() &&
+            currentYear === currentDate.getFullYear()
         ){
 
             cell.classList.add("today");
@@ -476,21 +472,18 @@ function renderCalendar(){
 
 
         cell.innerHTML = `
-
             <div class="english-date">
                 ${day}
             </div>
 
             <div class="bengali-date">
-                ${bengali.day} ${bengaliMonths[bengali.month]}
+                ${bengali.day}
+                ${bengaliMonths[bengali.month]}
             </div>
-
         `;
-
 
         calendar.appendChild(cell);
     }
-
 }
 
 
