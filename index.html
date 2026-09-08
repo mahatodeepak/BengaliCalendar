@@ -1,1210 +1,1019 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+  <title>বাংলা ক্যালেন্ডার | Bengali Calendar</title>
 
-<title>বাংলা ক্যালেন্ডার | Bengali Calendar</title>
+  <meta name="description"
+        content="কলকাতা ভিত্তিক বাংলা ক্যালেন্ডার। ইংরেজি ও বাংলা তারিখ একসাথে দেখুন।">
 
-<meta name="description"
-content="বাংলা ক্যালেন্ডার - বাংলা তারিখ ও ইংরেজি তারিখ দেখুন।">
+  <style>
 
-<style>
-
-/* =========================
-   BASIC
-========================= */
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:
-    "Noto Sans Bengali",
-    "Nirmala UI",
-    Arial,
-    sans-serif;
-
-    background:#f3f6fb;
-    color:#222;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    background:#173f8a;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-header h1{
-    font-size:28px;
-}
-
-header p{
-    margin-top:5px;
-}
-
-
-/* =========================
-   MAIN CONTAINER
-========================= */
-
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-}
-
-
-/* =========================
-   CALENDAR BOX
-========================= */
-
-.calendar-box{
-
-    background:white;
-
-    border-radius:15px;
-
-    padding:20px;
-
-    box-shadow:
-    0 5px 20px
-    rgba(0,0,0,0.08);
-}
-
-
-/* =========================
-   MONTH NAVIGATION
-========================= */
-
-.month-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:20px;
-}
-
-.month-header button{
-
-    border:none;
-
-    background:#173f8a;
-
-    color:white;
-
-    padding:10px 16px;
-
-    border-radius:8px;
-
-    font-size:18px;
-
-    cursor:pointer;
-}
-
-.month-header button:hover{
-
-    background:#0f306b;
-}
-
-
-.month-title{
-
-    text-align:center;
-}
-
-.month-title h2{
-
-    color:#173f8a;
-
-    font-size:25px;
-}
-
-.month-title p{
-
-    color:#666;
-
-    margin-top:3px;
-}
-
-
-/* =========================
-   WEEKDAYS
-========================= */
-
-.weekdays{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(7,1fr);
-
-    gap:5px;
-
-    margin-bottom:5px;
-}
-
-.weekdays div{
-
-    background:#e8eef9;
-
-    padding:10px 2px;
-
-    text-align:center;
-
-    font-weight:bold;
-
-    color:#173f8a;
-
-    font-size:14px;
-}
-
-
-/* =========================
-   DAYS GRID
-========================= */
-
-.days{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(7,1fr);
-
-    gap:5px;
-}
-
-
-/* =========================
-   DAY CELL
-========================= */
-
-.day{
-
-    min-height:75px;
-
-    border:1px solid #e2e2e2;
-
-    border-radius:8px;
-
-    padding:6px;
-
-    background:white;
-
-    overflow:hidden;
-}
-
-.day:hover{
-
-    background:#f1f5ff;
-}
-
-
-/* EMPTY CELL */
-
-.day.empty{
-
-    background:#f8f9fb;
-
-    border:1px solid #f0f0f0;
-}
-
-
-/* ENGLISH DATE */
-
-.english-date{
-
-    font-size:18px;
-
-    font-weight:bold;
-}
-
-
-/* BENGALI DATE */
-
-.bengali-date{
-
-    color:#d35400;
-
-    font-size:13px;
-
-    margin-top:5px;
-}
-
-
-/* TODAY */
-
-.today{
-
-    border:2px solid #173f8a;
-
-    background:#eef4ff;
-}
-
-
-/* =========================
-   INFORMATION CARDS
-========================= */
-
-.info{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(200px,1fr)
-    );
-
-    gap:15px;
-
-    margin-top:25px;
-}
-
-.info-card{
-
-    background:white;
-
-    border-radius:12px;
-
-    padding:20px;
-
-    box-shadow:
-    0 4px 15px
-    rgba(0,0,0,0.07);
-}
-
-.info-card h3{
-
-    color:#173f8a;
-
-    margin-bottom:8px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-    text-align:center;
-
-    padding:25px;
-
-    color:#666;
-
-    font-size:14px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    header h1{
-
-        font-size:23px;
+    * {
+      box-sizing: border-box;
     }
 
-    .container{
-
-        padding:10px;
+    body {
+      margin: 0;
+      font-family:
+        "Noto Sans Bengali",
+        "Noto Sans",
+        Arial,
+        sans-serif;
+      background: #f4f7fb;
+      color: #222;
     }
 
-    .calendar-box{
-
-        padding:10px;
+    header {
+      background: linear-gradient(135deg, #673ab7, #3f51b5);
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
     }
 
-    .day{
-
-        min-height:62px;
-
-        padding:5px;
+    header h1 {
+      margin: 0;
+      font-size: 28px;
     }
 
-    .english-date{
-
-        font-size:15px;
+    header p {
+      margin: 7px 0 0;
+      font-size: 14px;
+      opacity: 0.95;
     }
 
-    .bengali-date{
-
-        font-size:10px;
-
-        margin-top:3px;
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 12px;
     }
 
-    .weekdays div{
-
-        font-size:11px;
-
-        padding:8px 1px;
+    .calendar-card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
-    .month-header button{
-
-        padding:8px 11px;
-
-        font-size:16px;
+    .month-control {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
     }
 
-    .month-title h2{
-
-        font-size:20px;
+    .month-control button {
+      border: none;
+      background: #673ab7;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
     }
-}
 
-</style>
+    .month-control button:hover {
+      opacity: 0.85;
+    }
 
+    #monthTitle {
+      text-align: center;
+      flex: 1;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .weekday-row,
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .weekday {
+      text-align: center;
+      font-weight: bold;
+      padding: 10px 2px;
+      background: #eee;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .day {
+      min-height: 72px;
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      padding: 6px;
+      background: #fff;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .day:hover {
+      background: #f3efff;
+      transform: translateY(-1px);
+    }
+
+    .date-number {
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .bengali-date {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #673ab7;
+      line-height: 1.3;
+    }
+
+    .today {
+      border: 3px solid #ff5722;
+      background: #fff7f2;
+    }
+
+    .today-label {
+      color: #ff5722;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .info-card {
+      margin-top: 20px;
+      padding: 18px;
+      background: #fafafa;
+      border-radius: 14px;
+      border-left: 5px solid #673ab7;
+    }
+
+    .info-card h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .info-row {
+      padding: 7px 0;
+      font-size: 15px;
+    }
+
+    .location-card {
+      margin-top: 15px;
+      padding: 15px;
+      background: #eef4ff;
+      border-radius: 14px;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+
+      header h1 {
+        font-size: 23px;
+      }
+
+      .calendar-card {
+        padding: 10px;
+      }
+
+      .month-control button {
+        padding: 8px 12px;
+        font-size: 16px;
+      }
+
+      #monthTitle {
+        font-size: 17px;
+      }
+
+      .weekday {
+        font-size: 11px;
+        padding: 8px 1px;
+      }
+
+      .day {
+        min-height: 62px;
+        padding: 4px;
+      }
+
+      .date-number {
+        font-size: 15px;
+      }
+
+      .bengali-date {
+        font-size: 10px;
+      }
+    }
+
+  </style>
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
 
-<h1>📅 বাংলা ক্যালেন্ডার</h1>
+  <h1>📅 বাংলা ক্যালেন্ডার</h1>
 
-<p>
-বাংলা তারিখ ও ইংরেজি তারিখ
-</p>
+  <p>
+    Bengali Calendar • কলকাতা ভিত্তিক
+  </p>
 
 </header>
 
 
-
-<!-- =========================
-     MAIN
-========================= -->
-
 <div class="container">
 
+  <div class="calendar-card">
 
-<div class="calendar-box">
+    <div class="month-control">
 
+      <button onclick="previousMonth()">
+        ◀
+      </button>
 
-<!-- MONTH HEADER -->
+      <div id="monthTitle"></div>
 
-<div class="month-header">
+      <button onclick="nextMonth()">
+        ▶
+      </button>
 
-<button
-onclick="previousMonth()">
-◀
-</button>
-
-
-<div class="month-title">
-
-<h2 id="monthName">
-</h2>
-
-<p id="yearName">
-</p>
-
-</div>
+    </div>
 
 
-<button
-onclick="nextMonth()">
-▶
-</button>
+    <div class="weekday-row">
 
-</div>
+      <div class="weekday">রবি</div>
+      <div class="weekday">সোম</div>
+      <div class="weekday">মঙ্গল</div>
+      <div class="weekday">বুধ</div>
+      <div class="weekday">বৃহস্পতি</div>
+      <div class="weekday">শুক্র</div>
+      <div class="weekday">শনি</div>
 
-
-
-<!-- WEEKDAYS -->
-
-<div class="weekdays">
-
-<div>রবি</div>
-
-<div>সোম</div>
-
-<div>মঙ্গল</div>
-
-<div>বুধ</div>
-
-<div>বৃহস্পতি</div>
-
-<div>শুক্র</div>
-
-<div>শনি</div>
-
-</div>
+    </div>
 
 
-
-<!-- CALENDAR -->
-
-<div
-id="calendar"
-class="days">
-</div>
+    <div id="calendarDays" class="days"></div>
 
 
-</div>
+    <div class="info-card">
+
+      <h2>আজকের তথ্য</h2>
+
+      <div class="info-row">
+        📅 ইংরেজি:
+        <strong id="todayEnglish"></strong>
+      </div>
+
+      <div class="info-row">
+        🪔 বাংলা:
+        <strong id="todayBengali"></strong>
+      </div>
+
+      <div class="info-row">
+        📍 স্থান:
+        <strong>কলকাতা, পশ্চিমবঙ্গ</strong>
+      </div>
+
+      <div class="info-row">
+        🌙 চাঁদের অবস্থা:
+        <strong id="moonPhase"></strong>
+      </div>
+
+    </div>
 
 
+    <div class="location-card">
 
-<!-- =========================
-     INFORMATION
-========================= -->
+      <strong>📍 নির্দিষ্ট স্থান</strong>
 
-<div class="info">
+      <p>
+        কলকাতা, পশ্চিমবঙ্গ, ভারত
+      </p>
 
+      <p>
+        Latitude: 22.5726° N<br>
+        Longitude: 88.3639° E
+      </p>
 
-<div class="info-card">
+      <p class="note">
+        পরবর্তী সংস্করণে এই অবস্থান ব্যবহার করে
+        সূর্যোদয়, সূর্যাস্ত, চন্দ্রোদয়, চন্দ্রাস্ত,
+        তিথি ও নক্ষত্রের হিসাব যোগ করা হবে।
+      </p>
 
-<h3>
-📅 আজ
-</h3>
+    </div>
 
-<p id="todayEnglish">
-</p>
-
-<p id="todayBengali">
-</p>
+  </div>
 
 </div>
 
-
-
-<div class="info-card">
-
-<h3>
-📍 অবস্থান
-</h3>
-
-<p>
-কলকাতা, পশ্চিমবঙ্গ
-</p>
-
-<p>
-Latitude: 22.5726° N
-</p>
-
-<p>
-Longitude: 88.3639° E
-</p>
-
-</div>
-
-
-
-<div class="info-card">
-
-<h3>
-🌙 চাঁদের অবস্থা
-</h3>
-
-<p id="moonPhase">
-গণনা করা হচ্ছে...
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
-© 2026 Bengali Calendar
+  বাংলা ক্যালেন্ডার V1.2<br>
+  Kolkata Fixed Location
 
 </footer>
 
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 
+  /* =========================================
+     ENGLISH CALENDAR
+     ========================================= */
 
-/* =========================
-   BENGALI MONTHS
-========================= */
-
-const bengaliMonths = [
-
-    "বৈশাখ",
-
-    "জ্যৈষ্ঠ",
-
-    "আষাঢ়",
-
-    "শ্রাবণ",
-
-    "ভাদ্র",
-
-    "আশ্বিন",
-
-    "কার্তিক",
-
-    "অগ্রহায়ণ",
-
-    "পৌষ",
-
-    "মাঘ",
-
-    "ফাল্গুন",
-
-    "চৈত্র"
-
-];
-
-
-
-/* =========================
-   ENGLISH MONTHS
-========================= */
-
-const englishMonths = [
-
+  const monthNames = [
     "January",
-
     "February",
-
     "March",
-
     "April",
-
     "May",
-
     "June",
-
     "July",
-
     "August",
-
     "September",
-
     "October",
-
     "November",
-
     "December"
-
-];
-
+  ];
 
 
-/* =========================
-   CURRENT DATE
-========================= */
-
-const currentDate =
-new Date();
-
-
-let currentMonth =
-currentDate.getMonth();
-
-
-let currentYear =
-currentDate.getFullYear();
-
-
-
-/* =========================
-   BENGALI DATE
-========================= */
-
-function getBengaliDate(date){
-
-    const year =
-    date.getFullYear();
-
-    const month =
-    date.getMonth();
-
-    const day =
-    date.getDate();
+  const bengaliMonthNames = [
+    "বৈশাখ",
+    "জ্যৈষ্ঠ",
+    "আষাঢ়",
+    "শ্রাবণ",
+    "ভাদ্র",
+    "আশ্বিন",
+    "কার্তিক",
+    "অগ্রহায়ণ",
+    "পৌষ",
+    "মাঘ",
+    "ফাল্গুন",
+    "চৈত্র"
+  ];
 
 
-    let bengaliYear;
+  const bengaliMonthEnglish = [
+    "Boishakh",
+    "Joishtho",
+    "Asharh",
+    "Shrabon",
+    "Bhadro",
+    "Ashwin",
+    "Kartik",
+    "Agrahayan",
+    "Poush",
+    "Magh",
+    "Falgun",
+    "Chaitra"
+  ];
 
 
-    /*
-       Bengali New Year
-       approximately 14 April
-    */
+  const bengaliDigits = [
+    "০","১","২","৩","৪",
+    "৫","৬","৭","৮","৯"
+  ];
 
-    if(
-        month > 3 ||
-        (
-            month === 3 &&
-            day >= 14
-        )
-    ){
 
-        bengaliYear =
-        year - 593;
+  function toBengaliNumber(number) {
 
-    }else{
+    return String(number)
+      .split("")
+      .map(char => {
 
-        bengaliYear =
-        year - 594;
+        if (char >= "0" && char <= "9") {
+          return bengaliDigits[Number(char)];
+        }
+
+        return char;
+
+      })
+      .join("");
+  }
+
+
+  /* =========================================
+     WEST BENGAL 1433 DATE TABLE
+
+     These are Gregorian starting dates
+     for Bengali months.
+
+     Kolkata / West Bengal calendar basis.
+     ========================================= */
+
+  const bengaliMonthStarts1433 = [
+
+    {
+      year: 2026,
+      month: 3,
+      day: 15,
+      bengaliMonth: 0,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2026,
+      month: 4,
+      day: 16,
+      bengaliMonth: 1,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2026,
+      month: 5,
+      day: 16,
+      bengaliMonth: 2,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2026,
+      month: 6,
+      day: 18,
+      bengaliMonth: 3,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2026,
+      month: 7,
+      day: 19,
+      bengaliMonth: 4,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2026,
+      month: 8,
+      day: 19,
+      bengaliMonth: 5,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2026,
+      month: 9,
+      day: 19,
+      bengaliMonth: 6,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2026,
+      month: 10,
+      day: 18,
+      bengaliMonth: 7,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2026,
+      month: 11,
+      day: 17,
+      bengaliMonth: 8,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2027,
+      month: 0,
+      day: 16,
+      bengaliMonth: 9,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2027,
+      month: 1,
+      day: 15,
+      bengaliMonth: 10,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2027,
+      month: 2,
+      day: 16,
+      bengaliMonth: 11,
+      bengaliYear: 1433
+    },
+
+    {
+      year: 2027,
+      month: 3,
+      day: 15,
+      bengaliMonth: 0,
+      bengaliYear: 1434
+    }
+
+  ];
+
+
+  /*
+     IMPORTANT
+
+     JavaScript month:
+     January = 0
+     February = 1
+     ...
+     December = 11
+  */
+
+
+  function createDate(year, month, day) {
+
+    return new Date(
+      year,
+      month,
+      day,
+      12,
+      0,
+      0
+    );
+
+  }
+
+
+  function getBengaliDate(date) {
+
+    const target = createDate(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate()
+    );
+
+
+    let selected = null;
+
+
+    for (
+      let i = 0;
+      i < bengaliMonthStarts1433.length;
+      i++
+    ) {
+
+      const item = bengaliMonthStarts1433[i];
+
+      const start = createDate(
+        item.year,
+        item.month,
+        item.day
+      );
+
+
+      if (target >= start) {
+        selected = item;
+      }
 
     }
 
 
-    /*
-       Find Bengali year start
-    */
+    if (!selected) {
 
-    let startYear =
-    year;
-
-
-    if(
-        month < 3 ||
-        (
-            month === 3 &&
-            day < 14
-        )
-    ){
-
-        startYear =
-        year - 1;
+      return {
+        day: "",
+        month: "",
+        monthEnglish: "",
+        year: ""
+      };
 
     }
 
 
-    const startDate =
-    new Date(
-        startYear,
-        3,
-        14
+    const startDate = createDate(
+      selected.year,
+      selected.month,
+      selected.day
     );
 
 
     const difference =
-    Math.floor(
-        (
-            date -
-            startDate
-        )
-        /
-        (
-            1000 *
-            60 *
-            60 *
-            24
-        )
-    );
+      Math.floor(
+        (target - startDate) /
+        (1000 * 60 * 60 * 24)
+      );
 
 
-    /*
-       Approximate Bengali
-       month and day
-    */
-
-    let bengaliMonth =
-    Math.floor(
-        difference / 30
-    );
-
-
-    let bengaliDay =
-    (
-        difference % 30
-    ) + 1;
-
-
-    if(
-        bengaliMonth < 0
-    ){
-
-        bengaliMonth = 0;
-
-    }
-
-
-    if(
-        bengaliMonth > 11
-    ){
-
-        bengaliMonth = 11;
-
-    }
+    const bengaliDay =
+      difference + 1;
 
 
     return {
 
-        day:bengaliDay,
+      day: bengaliDay,
 
-        month:bengaliMonth,
+      month:
+        bengaliMonthNames[
+          selected.bengaliMonth
+        ],
 
-        year:bengaliYear
+      monthEnglish:
+        bengaliMonthEnglish[
+          selected.bengaliMonth
+        ],
+
+      year:
+        selected.bengaliYear
 
     };
 
-}
+  }
 
 
+  /* =========================================
+     CALENDAR RENDER
+     ========================================= */
 
-/* =========================
-   RENDER CALENDAR
-========================= */
+  let currentDate = new Date();
 
-function renderCalendar(){
-
-
-    const calendar =
-    document.getElementById(
-        "calendar"
-    );
+  currentDate.setHours(12, 0, 0, 0);
 
 
-    /*
-       Clear old calendar
-    */
+  function renderCalendar() {
 
-    calendar.innerHTML = "";
+    const year =
+      currentDate.getFullYear();
 
-
-    /*
-       Month title
-    */
-
-    document.getElementById(
-        "monthName"
-    ).textContent =
-    englishMonths[
-        currentMonth
-    ];
+    const month =
+      currentDate.getMonth();
 
 
     document.getElementById(
-        "yearName"
-    ).textContent =
-    currentYear;
+      "monthTitle"
+    ).innerHTML =
+      `${monthNames[month]} ${year}`;
 
+
+    const calendarDays =
+      document.getElementById(
+        "calendarDays"
+      );
+
+
+    calendarDays.innerHTML = "";
 
 
     /*
-       IMPORTANT
+       Correct weekday calculation.
 
-       getDay():
-
-       0 = Sunday
-       1 = Monday
-       2 = Tuesday
-       3 = Wednesday
-       4 = Thursday
-       5 = Friday
-       6 = Saturday
+       Sunday = 0
+       Monday = 1
+       ...
+       Saturday = 6
     */
 
     const firstDay =
-    new Date(
-        currentYear,
-        currentMonth,
+      new Date(
+        year,
+        month,
         1
-    ).getDay();
+      ).getDay();
 
 
-
-    /*
-       Number of days
-    */
-
-    const totalDays =
-    new Date(
-        currentYear,
-        currentMonth + 1,
+    const daysInMonth =
+      new Date(
+        year,
+        month + 1,
         0
-    ).getDate();
-
-
-
-    /*
-       Empty cells
-    */
-
-    for(
-        let i = 0;
-        i < firstDay;
-        i++
-    ){
-
-        const emptyCell =
-        document.createElement(
-            "div"
-        );
-
-
-        emptyCell.className =
-        "day empty";
-
-
-        calendar.appendChild(
-            emptyCell
-        );
-
-    }
-
+      ).getDate();
 
 
     /*
-       Dates
+       Empty cells before day 1
     */
 
-    for(
-        let day = 1;
-        day <= totalDays;
-        day++
-    ){
+    for (
+      let i = 0;
+      i < firstDay;
+      i++
+    ) {
+
+      const empty =
+        document.createElement("div");
+
+      empty.className = "day";
+
+      empty.style.visibility =
+        "hidden";
+
+      calendarDays.appendChild(
+        empty
+      );
+
+    }
 
 
-        const date =
-        new Date(
-            currentYear,
-            currentMonth,
-            day
+    /*
+       Create dates
+    */
+
+    for (
+      let day = 1;
+      day <= daysInMonth;
+      day++
+    ) {
+
+      const cell =
+        document.createElement("div");
+
+      cell.className = "day";
+
+
+      const date =
+        createDate(
+          year,
+          month,
+          day
         );
 
 
-        const bengali =
-        getBengaliDate(
-            date
+      /*
+         Bengali date
+      */
+
+      const bengali =
+        getBengaliDate(date);
+
+
+      /*
+         Today
+      */
+
+      const now =
+        new Date();
+
+
+      const isToday =
+        day === now.getDate() &&
+        month === now.getMonth() &&
+        year === now.getFullYear();
+
+
+      if (isToday) {
+
+        cell.classList.add(
+          "today"
         );
 
-
-        const cell =
-        document.createElement(
-            "div"
-        );
+      }
 
 
-        cell.className =
-        "day";
+      cell.innerHTML = `
 
+        <div class="date-number">
+          ${day}
+        </div>
 
+        ${
+          bengali.day
+          ?
+          `
+          <div class="bengali-date">
 
-        /*
-           Highlight today
-        */
+            ${toBengaliNumber(bengali.day)}
+            ${bengali.month}
 
-        if(
+            <br>
 
-            day ===
-            currentDate.getDate()
+            ${toBengaliNumber(bengali.year)}
 
-            &&
-
-            currentMonth ===
-            currentDate.getMonth()
-
-            &&
-
-            currentYear ===
-            currentDate.getFullYear()
-
-        ){
-
-            cell.classList.add(
-                "today"
-            );
-
+          </div>
+          `
+          :
+          ""
         }
 
+        ${
+          isToday
+          ?
+          `
+          <div class="today-label">
+            আজ
+          </div>
+          `
+          :
+          ""
+        }
+
+      `;
 
 
-        /*
-           Cell content
-        */
-
-        cell.innerHTML = `
-
-            <div class="english-date">
-
-                ${day}
-
-            </div>
-
-            <div class="bengali-date">
-
-                ${bengali.day}
-                ${bengaliMonths[bengali.month]}
-
-            </div>
-
-        `;
-
-
-
-        calendar.appendChild(
-            cell
-        );
+      calendarDays.appendChild(
+        cell
+      );
 
     }
 
-}
+  }
 
 
+  /* =========================================
+     PREVIOUS MONTH
+     ========================================= */
 
-/* =========================
-   PREVIOUS MONTH
-========================= */
+  function previousMonth() {
 
-function previousMonth(){
-
-    currentMonth--;
-
-
-    if(
-        currentMonth < 0
-    ){
-
-        currentMonth = 11;
-
-        currentYear--;
-
-    }
-
+    currentDate.setMonth(
+      currentDate.getMonth() - 1
+    );
 
     renderCalendar();
 
-}
+  }
 
 
+  /* =========================================
+     NEXT MONTH
+     ========================================= */
 
-/* =========================
-   NEXT MONTH
-========================= */
+  function nextMonth() {
 
-function nextMonth(){
-
-    currentMonth++;
-
-
-    if(
-        currentMonth > 11
-    ){
-
-        currentMonth = 0;
-
-        currentYear++;
-
-    }
-
+    currentDate.setMonth(
+      currentDate.getMonth() + 1
+    );
 
     renderCalendar();
 
-}
+  }
 
 
+  /* =========================================
+     TODAY INFORMATION
+     ========================================= */
 
-/* =========================
-   TODAY
-========================= */
-
-function showToday(){
-
-    const bengali =
-    getBengaliDate(
-        currentDate
-    );
-
-
-    document.getElementById(
-        "todayEnglish"
-    ).textContent =
-
-    currentDate.toLocaleDateString(
-        "en-IN",
-        {
-
-            day:"numeric",
-
-            month:"long",
-
-            year:"numeric"
-
-        }
-    );
-
-
-    document.getElementById(
-        "todayBengali"
-    ).textContent =
-
-    `${bengali.day}
-    ${bengaliMonths[bengali.month]}
-    ${bengali.year}`;
-
-}
-
-
-
-/* =========================
-   MOON PHASE
-========================= */
-
-function calculateMoonPhase(){
-
-
-    const knownNewMoon =
-    new Date(
-        "2000-01-06T18:14:00Z"
-    );
-
+  function updateTodayInformation() {
 
     const today =
-    new Date();
+      new Date();
+
+
+    const englishDate =
+      today.toLocaleDateString(
+        "en-IN",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }
+      );
+
+
+    document.getElementById(
+      "todayEnglish"
+    ).textContent =
+      englishDate;
+
+
+    const bengali =
+      getBengaliDate(today);
+
+
+    if (bengali.day) {
+
+      document.getElementById(
+        "todayBengali"
+      ).textContent =
+        `${toBengaliNumber(bengali.day)}
+         ${bengali.month}
+         ${toBengaliNumber(bengali.year)}
+         বঙ্গাব্দ`;
+
+    }
+
+  }
+
+
+  /* =========================================
+     SIMPLE MOON PHASE
+     
+     This is only a visual approximation.
+     Accurate lunar calculations will be
+     added in a later version.
+     ========================================= */
+
+  function getMoonPhase() {
+
+    const knownNewMoon =
+      new Date(
+        "2000-01-06T18:14:00Z"
+      );
+
+
+    const now =
+      new Date();
 
 
     const days =
-    (
-        today -
-        knownNewMoon
-    )
-    /
-    (
+      (
+        now.getTime() -
+        knownNewMoon.getTime()
+      )
+      /
+      (
         1000 *
         60 *
         60 *
         24
-    );
+      );
 
 
-    const cycle =
-    days %
-    29.530588;
+    const lunarCycle =
+      29.530588;
 
 
-    let phase;
+    const phase =
+      (
+        days %
+        lunarCycle
+      ) /
+      lunarCycle;
 
 
-    if(
-        cycle < 1.8
-    ){
+    if (phase < 0.03) {
 
-        phase =
-        "🌑 অমাবস্যা";
-
-    }
-
-    else if(
-        cycle < 7.4
-    ){
-
-        phase =
-        "🌒 শুক্লপক্ষ";
+      return "🌑 অমাবস্যা";
 
     }
 
-    else if(
-        cycle < 9.2
-    ){
+    if (phase < 0.25) {
 
-        phase =
-        "🌓 প্রথম চতুর্থাংশ";
+      return "🌒 শুক্লপক্ষ";
 
     }
 
-    else if(
-        cycle < 14.8
-    ){
+    if (phase < 0.27) {
 
-        phase =
-        "🌔 শুক্লপক্ষ";
+      return "🌓 অর্ধচন্দ্র";
 
     }
 
-    else if(
-        cycle < 16.6
-    ){
+    if (phase < 0.48) {
 
-        phase =
-        "🌕 পূর্ণিমা";
+      return "🌔 শুক্লপক্ষ";
 
     }
 
-    else if(
-        cycle < 22.1
-    ){
+    if (phase < 0.53) {
 
-        phase =
-        "🌖 কৃষ্ণপক্ষ";
+      return "🌕 পূর্ণিমা";
 
     }
 
-    else if(
-        cycle < 23.9
-    ){
+    if (phase < 0.75) {
 
-        phase =
-        "🌗 শেষ চতুর্থাংশ";
+      return "🌖 কৃষ্ণপক্ষ";
 
     }
 
-    else{
+    if (phase < 0.77) {
 
-        phase =
-        "🌘 কৃষ্ণপক্ষ";
+      return "🌗 অর্ধচন্দ্র";
 
     }
 
+    return "🌘 কৃষ্ণপক্ষ";
+
+  }
+
+
+  function updateMoonPhase() {
 
     document.getElementById(
-        "moonPhase"
+      "moonPhase"
     ).textContent =
-    phase;
+      getMoonPhase();
 
-}
+  }
 
 
+  /* =========================================
+     START
+     ========================================= */
 
-/* =========================
-   START
-========================= */
+  renderCalendar();
 
-renderCalendar();
+  updateTodayInformation();
 
-showToday();
-
-calculateMoonPhase();
-
+  updateMoonPhase();
 
 </script>
 
 </body>
-
 </html>
