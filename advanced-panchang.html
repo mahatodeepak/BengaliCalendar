@@ -6,6 +6,7 @@
 
 <title>Advanced Panchang | বাংলা পঞ্জিকা</title>
 
+<!-- Astronomy Engine -->
 <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
 
 <style>
@@ -15,10 +16,10 @@
 
 body{
     margin:0;
-    padding:15px;
+    padding:12px;
     background:#f1f3f5;
-    font-family:"Noto Sans Bengali","Nirmala UI","Segoe UI",sans-serif;
     color:#222;
+    font-family:"Noto Sans Bengali","Nirmala UI","Segoe UI",sans-serif;
 }
 
 .container{
@@ -29,26 +30,25 @@ body{
 h1{
     text-align:center;
     color:#b30000;
-    margin:5px 0 4px;
-    font-size:30px;
+    margin:5px 0;
+    font-size:29px;
 }
 
 .subtitle{
     text-align:center;
     color:#555;
-    margin-bottom:15px;
-    font-size:15px;
+    margin-bottom:12px;
+    font-size:14px;
 }
 
 .top-link{
     display:block;
-    text-align:center;
-    margin:10px auto 15px;
     width:max-content;
+    margin:10px auto 15px;
+    padding:8px 16px;
     background:#8b0000;
     color:white;
     text-decoration:none;
-    padding:9px 16px;
     border-radius:20px;
     font-size:14px;
 }
@@ -63,7 +63,7 @@ h1{
 .month-header{
     background:#b30000;
     color:white;
-    min-height:65px;
+    min-height:64px;
     display:grid;
     grid-template-columns:52px 1fr 52px;
     align-items:center;
@@ -71,23 +71,18 @@ h1{
 }
 
 .month-header button{
-    width:44px;
-    height:44px;
-    border:0;
+    width:43px;
+    height:43px;
+    border:none;
     border-radius:50%;
     background:rgba(255,255,255,.18);
     color:white;
     font-size:28px;
-    cursor:pointer;
-}
-
-.month-header button:active{
-    transform:scale(.94);
 }
 
 .month-title{
+    font-size:18px;
     font-weight:bold;
-    font-size:19px;
     line-height:1.35;
 }
 
@@ -108,30 +103,30 @@ h1{
 .shubh-list{
     display:flex;
     flex-wrap:wrap;
-    gap:7px;
+    gap:6px;
 }
 
 .shubh-item{
     background:white;
-    border:1px solid #e1c978;
+    border:1px solid #dfc879;
     padding:5px 8px;
     border-radius:7px;
-    font-size:13px;
+    font-size:12px;
 }
 
 .weekdays{
     display:grid;
     grid-template-columns:repeat(7,1fr);
-    background:#eeeeee;
+    background:#eee;
     border-top:1px solid #ddd;
     border-bottom:1px solid #ddd;
 }
 
 .weekdays div{
     text-align:center;
-    padding:9px 2px;
+    padding:8px 2px;
     font-weight:bold;
-    font-size:13px;
+    font-size:12px;
 }
 
 .calendar{
@@ -142,16 +137,15 @@ h1{
 }
 
 .day-box{
-    height:112px;
+    height:100px;
     min-width:0;
     background:#fff;
     border:1px solid #ddd;
     border-radius:8px;
-    padding:5px;
+    padding:4px;
     text-align:center;
     cursor:pointer;
     overflow:hidden;
-    position:relative;
 }
 
 .day-box:hover{
@@ -165,70 +159,60 @@ h1{
 
 .day-box.empty{
     background:#f7f7f7;
-    border:0;
+    border:none;
     cursor:default;
 }
 
 .date-line{
+    height:30px;
     display:flex;
-    justify-content:center;
     align-items:baseline;
+    justify-content:center;
     gap:5px;
-    height:31px;
 }
 
 .bn-date{
-    font-size:22px;
-    font-weight:bold;
     color:#b30000;
+    font-size:21px;
+    font-weight:bold;
 }
 
 .en-date{
-    font-size:11px;
     color:#666;
+    font-size:10px;
 }
 
 .tithi{
-    font-size:12px;
+    font-size:11px;
     font-weight:bold;
-    color:#333;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
 }
 
 .tithi-time{
-    font-size:10px;
+    font-size:9px;
     color:#666;
     margin-top:2px;
 }
 
 .special{
+    height:20px;
     margin-top:3px;
     font-size:15px;
-    height:19px;
-}
-
-.day-summary{
-    margin-top:2px;
-    font-size:9px;
-    color:#555;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
 }
 
 .details{
     margin-top:16px;
+    padding:16px;
     background:white;
     border-radius:14px;
-    padding:16px;
     box-shadow:0 3px 12px rgba(0,0,0,.12);
 }
 
 .details h2{
-    margin:0 0 12px;
     color:#b30000;
+    margin:0 0 12px;
     font-size:20px;
 }
 
@@ -237,9 +221,9 @@ h1{
     border:1px solid #ead39a;
     border-radius:9px;
     padding:10px;
-    margin-bottom:12px;
     text-align:center;
     font-weight:bold;
+    margin-bottom:12px;
 }
 
 .panchang-grid{
@@ -250,7 +234,7 @@ h1{
 
 .info{
     background:#fafafa;
-    border:1px solid #e2e2e2;
+    border:1px solid #e1e1e1;
     border-radius:8px;
     padding:9px;
     font-size:14px;
@@ -263,16 +247,10 @@ h1{
 
 .section-title{
     margin:15px 0 7px;
+    padding-bottom:5px;
+    border-bottom:1px solid #ddd;
     color:#8b0000;
     font-weight:bold;
-    border-bottom:1px solid #ddd;
-    padding-bottom:5px;
-}
-
-.loading{
-    text-align:center;
-    padding:20px;
-    color:#777;
 }
 
 .footer{
@@ -282,10 +260,16 @@ h1{
     margin:20px 0 5px;
 }
 
+.loading{
+    text-align:center;
+    color:#777;
+    padding:18px;
+}
+
 @media(max-width:600px){
 
     body{
-        padding:8px;
+        padding:7px;
     }
 
     h1{
@@ -293,7 +277,7 @@ h1{
     }
 
     .month-title{
-        font-size:16px;
+        font-size:15px;
     }
 
     .calendar{
@@ -302,7 +286,7 @@ h1{
     }
 
     .day-box{
-        height:98px;
+        height:96px;
         padding:3px;
     }
 
@@ -319,14 +303,6 @@ h1{
     }
 
     .tithi-time{
-        font-size:8px;
-    }
-
-    .special{
-        font-size:13px;
-    }
-
-    .day-summary{
         font-size:8px;
     }
 
@@ -354,6 +330,7 @@ h1{
 <div id="calendarContainer"></div>
 
 <div class="details" id="detailsBox">
+
     <h2>🌸 দিনের পূর্ণ পঞ্জিকা</h2>
 
     <div class="detail-date" id="detailDate">
@@ -365,6 +342,7 @@ h1{
             ক্যালেন্ডার থেকে একটি তারিখে ক্লিক করুন।
         </div>
     </div>
+
 </div>
 
 <div class="footer">
@@ -373,17 +351,18 @@ h1{
 
 </div>
 
+
 <script>
 
 /* =========================================================
-   1. FIXED LOCATION
-   ========================================================= */
+   KOLKATA LOCATION
+========================================================= */
 
 const LOCATION = {
-    lat: 22.5726,
-    lon: 88.3639,
-    height: 9,
-    tz: "Asia/Kolkata"
+    lat:22.5726,
+    lon:88.3639,
+    height:9,
+    tz:"Asia/Kolkata"
 };
 
 const OBSERVER = new Astronomy.Observer(
@@ -394,118 +373,118 @@ const OBSERVER = new Astronomy.Observer(
 
 
 /* =========================================================
-   2. BENGALI MONTH DATA
-   ========================================================= */
+   BENGALI MONTHS
+   Corrected using Kolkata Bengali calendar reference.
+========================================================= */
 
 const months = [
 
-{
-    bn:"বৈশাখ",
-    en:"Boishakh",
-    period:"Apr–May 2026",
-    start:"2026-04-15",
-    days:31
-},
+    {
+        bn:"বৈশাখ",
+        en:"Boishakh",
+        period:"Apr–May 2026",
+        start:"2026-04-15",
+        days:31
+    },
 
-{
-    bn:"জ্যৈষ্ঠ",
-    en:"Joishtho",
-    period:"May–Jun 2026",
-    start:"2026-05-16",
-    days:31
-},
+    {
+        bn:"জ্যৈষ্ঠ",
+        en:"Joishtho",
+        period:"May–Jun 2026",
+        start:"2026-05-16",
+        days:31
+    },
 
-{
-    bn:"আষাঢ়",
-    en:"Asharh",
-    period:"Jun–Jul 2026",
-    start:"2026-06-16",
-    days:32
-},
+    {
+        bn:"আষাঢ়",
+        en:"Asharh",
+        period:"Jun–Jul 2026",
+        start:"2026-06-16",
+        days:32
+    },
 
-{
-    bn:"শ্রাবণ",
-    en:"Shraban",
-    period:"Jul–Aug 2026",
-    start:"2026-07-18",
-    days:32
-},
+    {
+        bn:"শ্রাবণ",
+        en:"Shraban",
+        period:"Jul–Aug 2026",
+        start:"2026-07-18",
+        days:31
+    },
 
-{
-    bn:"ভাদ্র",
-    en:"Bhadro",
-    period:"Aug–Sep 2026",
-    start:"2026-08-19",
-    days:31
-},
+    {
+        bn:"ভাদ্র",
+        en:"Bhadro",
+        period:"Aug–Sep 2026",
+        start:"2026-08-18",
+        days:31
+    },
 
-{
-    bn:"আশ্বিন",
-    en:"Ashwin",
-    period:"Sep–Oct 2026",
-    start:"2026-09-19",
-    days:31
-},
+    {
+        bn:"আশ্বিন",
+        en:"Ashwin",
+        period:"Sep–Oct 2026",
+        start:"2026-09-18",
+        days:31
+    },
 
-{
-    bn:"কার্তিক",
-    en:"Kartik",
-    period:"Oct–Nov 2026",
-    start:"2026-10-19",
-    days:30
-},
+    {
+        bn:"কার্তিক",
+        en:"Kartik",
+        period:"Oct–Nov 2026",
+        start:"2026-10-19",
+        days:30
+    },
 
-{
-    bn:"অগ্রহায়ণ",
-    en:"Agrahayan",
-    period:"Nov–Dec 2026",
-    start:"2026-11-18",
-    days:30
-},
+    {
+        bn:"অগ্রহায়ণ",
+        en:"Agrahayan",
+        period:"Nov–Dec 2026",
+        start:"2026-11-18",
+        days:30
+    },
 
-{
-    bn:"পৌষ",
-    en:"Poush",
-    period:"Dec 2026–Jan 2027",
-    start:"2026-12-17",
-    days:30
-},
+    {
+        bn:"পৌষ",
+        en:"Poush",
+        period:"Dec 2026–Jan 2027",
+        start:"2026-12-17",
+        days:30
+    },
 
-{
-    bn:"মাঘ",
-    en:"Magh",
-    period:"Jan–Feb 2027",
-    start:"2027-01-16",
-    days:30
-},
+    {
+        bn:"মাঘ",
+        en:"Magh",
+        period:"Jan–Feb 2027",
+        start:"2027-01-16",
+        days:30
+    },
 
-{
-    bn:"ফাল্গুন",
-    en:"Falgun",
-    period:"Feb–Mar 2027",
-    start:"2027-02-15",
-    days:30
-},
+    {
+        bn:"ফাল্গুন",
+        en:"Falgun",
+        period:"Feb–Mar 2027",
+        start:"2027-02-15",
+        days:30
+    },
 
-{
-    bn:"চৈত্র",
-    en:"Chaitra",
-    period:"Mar–Apr 2027",
-    start:"2027-03-16",
-    days:30
-}
+    {
+        bn:"চৈত্র",
+        en:"Chaitra",
+        period:"Mar–Apr 2027",
+        start:"2027-03-16",
+        days:30
+    }
 
 ];
 
 
 /* =========================================================
-   3. SHUBHKARMA DATA
-   ========================================================= */
+   SHUBHKARMA
+========================================================= */
 
 const shubhkarma = {
 
 "বিবাহ":{
-
 "বৈশাখ":[7,19,23,29],
 "জ্যৈষ্ঠ":[],
 "আষাঢ়":[21,27],
@@ -518,11 +497,9 @@ const shubhkarma = {
 "মাঘ":[3,11,13,14,27,28],
 "ফাল্গুন":[3,9,11,16,24,29],
 "চৈত্র":[]
-
 },
 
 "গাত্রহরিদ্রা":{
-
 "বৈশাখ":[1,6,15,17,19,22,24,26,29,30],
 "জ্যৈষ্ঠ":[],
 "আষাঢ়":[16,23,27],
@@ -535,11 +512,9 @@ const shubhkarma = {
 "মাঘ":[5,9,12,13,14,23,27],
 "ফাল্গুন":[8,9,12,13,15,25,26,29],
 "চৈত্র":[]
-
 },
 
 "অন্নপ্রাশন":{
-
 "বৈশাখ":[5,15],
 "জ্যৈষ্ঠ":[3,6,13],
 "আষাঢ়":[2],
@@ -552,11 +527,9 @@ const shubhkarma = {
 "মাঘ":[5,24,27],
 "ফাল্গুন":[5,6,25,26],
 "চৈত্র":[2,24,27]
-
 },
 
 "গৃহপ্রবেশ":{
-
 "বৈশাখ":[],
 "জ্যৈষ্ঠ":[],
 "আষাঢ়":[2],
@@ -569,11 +542,9 @@ const shubhkarma = {
 "মাঘ":[],
 "ফাল্গুন":[5,6,25,26],
 "চৈত্র":[]
-
 },
 
 "উপনয়ন":{
-
 "বৈশাখ":[],
 "জ্যৈষ্ঠ":[],
 "আষাঢ়":[4],
@@ -586,11 +557,9 @@ const shubhkarma = {
 "মাঘ":[25,27],
 "ফাল্গুন":[3,26],
 "চৈত্র":[3]
-
 },
 
 "বিদ্যারম্ভ":{
-
 "বৈশাখ":[],
 "জ্যৈষ্ঠ":[],
 "আষাঢ়":[],
@@ -603,11 +572,9 @@ const shubhkarma = {
 "মাঘ":[27],
 "ফাল্গুন":[5,26],
 "চৈত্র":[3,4]
-
 },
 
 "নামকরণ":{
-
 "বৈশাখ":[],
 "জ্যৈষ্ঠ":[],
 "আষাঢ়":[],
@@ -620,16 +587,14 @@ const shubhkarma = {
 "মাঘ":[],
 "ফাল্গুন":[],
 "চৈত্র":[]
-
 },
 
 "সাধভক্ষণ":{
-
 "বৈশাখ":[6,9,10,15,17],
 "জ্যৈষ্ঠ":[6,7,13],
 "আষাঢ়":[2,30],
 "শ্রাবণ":[2,3,5,9],
-"ভাদ্র":[1,8,10,26,31],
+"ভাদ্র":[1,8,10,26,27],
 "আশ্বিন":[5,6,24,27],
 "কার্তিক":[3,4,24,25,29],
 "অগ্রহায়ণ":[22,26,27],
@@ -637,38 +602,14 @@ const shubhkarma = {
 "মাঘ":[7,23,24,27],
 "ফাল্গুন":[5,6,25,26,29],
 "চৈত্র":[2,3,7,23,27]
-
 }
 
 };
 
 
 /* =========================================================
-   4. BENGALI NUMBERS
-   ========================================================= */
-
-function bnNumber(number){
-
-    const map = {
-        "0":"০",
-        "1":"১",
-        "2":"২",
-        "3":"৩",
-        "4":"৪",
-        "5":"৫",
-        "6":"৬",
-        "7":"৭",
-        "8":"৮",
-        "9":"৯"
-    };
-
-    return String(number).replace(/[0-9]/g, d => map[d]);
-}
-
-
-/* =========================================================
-   5. WEEKDAYS
-   ========================================================= */
+   BASIC DATA
+========================================================= */
 
 const weekdays = [
     "রবি",
@@ -690,167 +631,70 @@ const weekdaysFull = [
     "শনিবার"
 ];
 
-
-/* =========================================================
-   6. TITHI
-   ========================================================= */
-
 const tithis = [
-
-"প্রতিপদ",
-"দ্বিতীয়া",
-"তৃতীয়া",
-"চতুর্থী",
-"পঞ্চমী",
-"ষষ্ঠী",
-"সপ্তমী",
-"অষ্টমী",
-"নবমী",
-"দশমী",
-"একাদশী",
-"দ্বাদশী",
-"ত্রয়োদশী",
-"চতুর্দশী",
-"পূর্ণিমা",
-"প্রতিপদ",
-"দ্বিতীয়া",
-"তৃতীয়া",
-"চতুর্থী",
-"পঞ্চমী",
-"ষষ্ঠী",
-"সপ্তমী",
-"অষ্টমী",
-"নবমী",
-"দশমী",
-"একাদশী",
-"দ্বাদশী",
-"ত্রয়োদশী",
-"চতুর্দশী",
-"অমাবস্যা"
-
+"প্রতিপদ","দ্বিতীয়া","তৃতীয়া","চতুর্থী","পঞ্চমী",
+"ষষ্ঠী","সপ্তমী","অষ্টমী","নবমী","দশমী",
+"একাদশী","দ্বাদশী","ত্রয়োদশী","চতুর্দশী","পূর্ণিমা",
+"প্রতিপদ","দ্বিতীয়া","তৃতীয়া","চতুর্থী","পঞ্চমী",
+"ষষ্ঠী","সপ্তমী","অষ্টমী","নবমী","দশমী",
+"একাদশী","দ্বাদশী","ত্রয়োদশী","চতুর্দশী","অমাবস্যা"
 ];
-
-
-/* =========================================================
-   7. NAKSHATRA
-   ========================================================= */
 
 const nakshatras = [
-
-"অশ্বিনী",
-"ভরণী",
-"কৃত্তিকা",
-"রোহিণী",
-"মৃগশিরা",
-"আর্দ্রা",
-"পুনর্বসু",
-"পুষ্যা",
-"অশ্লেষা",
-"মঘা",
-"পূর্বফাল্গুনী",
-"উত্তরফাল্গুনী",
-"হস্তা",
-"চিত্রা",
-"স্বাতী",
-"বিশাখা",
-"অনুরাধা",
-"জ্যেষ্ঠা",
-"মূলা",
-"পূর্বাষাঢ়া",
-"উত্তরাষাঢ়া",
-"শ্রবণা",
-"ধনিষ্ঠা",
-"শতভিষা",
-"পূর্বভাদ্রপদ",
-"উত্তরভাদ্রপদ",
-"রেবতী"
-
+"অশ্বিনী","ভরণী","কৃত্তিকা","রোহিণী","মৃগশিরা",
+"আর্দ্রা","পুনর্বসু","পুষ্যা","অশ্লেষা","মঘা",
+"পূর্বফাল্গুনী","উত্তরফাল্গুনী","হস্তা","চিত্রা","স্বাতী",
+"বিশাখা","অনুরাধা","জ্যেষ্ঠা","মূলা","পূর্বাষাঢ়া",
+"উত্তরাষাঢ়া","শ্রবণা","ধনিষ্ঠা","শতভিষা","পূর্বভাদ্রপদ",
+"উত্তরভাদ্রপদ","রেবতী"
 ];
-
-
-/* =========================================================
-   8. YOGA
-   ========================================================= */
 
 const yogas = [
-
-"বিষ্কম্ভ",
-"প্রীতি",
-"আয়ুষ্মান",
-"সৌভাগ্য",
-"শোভন",
-"অতিগণ্ড",
-"সুকর্মা",
-"ধৃতি",
-"শূল",
-"গণ্ড",
-"বৃদ্ধি",
-"ধ্রুব",
-"ব্যাঘাত",
-"হর্ষণ",
-"বজ্র",
-"সিদ্ধি",
-"ব্যতীপাত",
-"বরীয়ান",
-"পরিঘ",
-"শিব",
-"সিদ্ধ",
-"সাধ্য",
-"শুভ",
-"শুক্ল",
-"ব্রহ্ম",
-"ঐন্দ্র",
-"বৈধৃতি"
-
+"বিষ্কম্ভ","প্রীতি","আয়ুষ্মান","সৌভাগ্য","শোভন",
+"অতিগণ্ড","সুকর্মা","ধৃতি","শূল","গণ্ড",
+"বৃদ্ধি","ধ্রুব","ব্যাঘাত","হর্ষণ","বজ্র",
+"সিদ্ধি","ব্যতীপাত","বরীয়ান","পরিঘ","শিব",
+"সিদ্ধ","সাধ্য","শুভ","শুক্ল","ব্রহ্ম",
+"ঐন্দ্র","বৈধৃতি"
 ];
 
-
-/* =========================================================
-   9. KARANA
-   ========================================================= */
-
 const movableKaranas = [
-
-"বব",
-"বালব",
-"কৌলব",
-"তৈতিল",
-"গর",
-"বণিজ",
-"বিষ্টি"
-
+"বব","বালব","কৌলব","তৈতিল","গর","বণিজ","বিষ্টি"
 ];
 
 const fixedKaranas = {
-
-57:"শকুনি",
-58:"চতুষ্পাদ",
-59:"নাগ"
-
+    57:"শকুনি",
+    58:"চতুষ্পাদ",
+    59:"নাগ"
 };
-
-function karanaName(index){
-
-    if(index === 0){
-        return "কিমস্তুঘ্ন";
-    }
-
-    if(index >= 1 && index <= 56){
-        return movableKaranas[(index - 1) % 7];
-    }
-
-    return fixedKaranas[index] || "";
-}
 
 
 /* =========================================================
-   10. DATE HELPERS
-   ========================================================= */
+   UTILITIES
+========================================================= */
 
-/*
-   Convert Kolkata local clock time into a real Date object.
-   Kolkata = UTC+5:30.
-*/
+function bnNumber(n){
+
+    const map = {
+        "0":"০","1":"১","2":"২","3":"৩","4":"৪",
+        "5":"৫","6":"৬","7":"৭","8":"৮","9":"৯"
+    };
+
+    return String(n).replace(/[0-9]/g,d=>map[d]);
+}
+
+
+function norm(x){
+
+    x %= 360;
+
+    if(x < 0){
+        x += 360;
+    }
+
+    return x;
+}
+
 
 function istDate(
     year,
@@ -871,73 +715,66 @@ function istDate(
             second
         )
     );
-
 }
 
 
-function dateParts(date){
+function localParts(date){
 
-    const formatter = new Intl.DateTimeFormat(
-        "en-CA",
-        {
-            timeZone:LOCATION.tz,
-            year:"numeric",
-            month:"2-digit",
-            day:"2-digit"
-        }
-    );
+    const parts =
+        new Intl.DateTimeFormat(
+            "en-CA",
+            {
+                timeZone:"Asia/Kolkata",
+                year:"numeric",
+                month:"2-digit",
+                day:"2-digit"
+            }
+        ).formatToParts(date);
 
-    const parts = formatter.formatToParts(date);
-
-    let result = {};
+    const r = {};
 
     parts.forEach(p=>{
         if(p.type !== "literal"){
-            result[p.type] = Number(p.value);
+            r[p.type] = Number(p.value);
         }
     });
 
-    return result;
+    return r;
 }
 
 
 function localMidnight(date){
 
-    const p = dateParts(date);
+    const p = localParts(date);
 
     return istDate(
         p.year,
-        p.month - 1,
+        p.month-1,
         p.day
     );
-
 }
 
 
 function nextLocalMidnight(date){
 
-    const p = dateParts(date);
+    const p = localParts(date);
 
-    const d = new Date(
-        Date.UTC(
-            p.year,
-            p.month - 1,
-            p.day + 1
-        )
-    );
+    const d =
+        new Date(
+            Date.UTC(
+                p.year,
+                p.month-1,
+                p.day+1
+            )
+        );
 
     return istDate(
         d.getUTCFullYear(),
         d.getUTCMonth(),
         d.getUTCDate()
     );
-
 }
 
-
-/* =========================================================
-   11. TIME FORMAT
-   ========================================================= */
 
 function formatTime(date){
 
@@ -948,86 +785,73 @@ function formatTime(date){
     return new Intl.DateTimeFormat(
         "bn-IN",
         {
-            timeZone:LOCATION.tz,
+            timeZone:"Asia/Kolkata",
             hour:"numeric",
             minute:"2-digit",
             hour12:true
         }
     ).format(date);
-
 }
 
 
-function formatEnglishDate(date){
+function formatFullDate(date){
 
     return new Intl.DateTimeFormat(
         "en-IN",
         {
-            timeZone:LOCATION.tz,
-            day:"numeric",
-            month:"short"
-        }
-    ).format(date);
-
-}
-
-
-function formatFullEnglishDate(date){
-
-    return new Intl.DateTimeFormat(
-        "en-IN",
-        {
-            timeZone:LOCATION.tz,
+            timeZone:"Asia/Kolkata",
             day:"numeric",
             month:"long",
             year:"numeric"
         }
     ).format(date);
-
 }
 
 
 /* =========================================================
-   12. NORMALIZE ANGLE
-   ========================================================= */
+   LAHIRI-STYLE AYANAMSHA
+========================================================= */
 
-function norm(angle){
+/*
+   Lahiri ayanamsha reference:
+   approximately 23°51'25.8" at J2000.
 
-    angle %= 360;
+   Mean precession is approximately 50.29 arc-seconds/year.
 
-    if(angle < 0){
-        angle += 360;
-    }
+   This is deliberately isolated here so the astronomical
+   layer can later be replaced with a more exact siddhanta
+   implementation without changing the UI.
+*/
 
-    return angle;
+function lahiriAyanamsha(date){
+
+    const J2000 =
+        new Date("2000-01-01T12:00:00Z");
+
+    const years =
+        (
+            date.getTime() -
+            J2000.getTime()
+        ) /
+        (365.2422 * 86400000);
+
+    const base =
+        23 +
+        51/60 +
+        25.8/3600;
+
+    const rate =
+        50.29 / 3600;
+
+    return base + rate * years;
 }
 
 
 /* =========================================================
-   13. APPROXIMATE LAHIRI AYANAMSHA
-   ========================================================= */
+   ECLIPTIC LONGITUDES
+========================================================= */
 
-function ayanamsha(date){
-
-    const p = dateParts(date);
-
-    const yearFraction =
-        p.year +
-        ((Date.UTC(p.year,p.month-1,p.day) -
-          Date.UTC(p.year,0,1)) /
-         (365.2422 * 86400000));
-
-    const years = yearFraction - 2000;
-
-    return 23.85675 + 0.013968 * years;
-}
-
-
-/* =========================================================
-   14. ASTRONOMICAL LONGITUDES
-   ========================================================= */
-
-function sunLongitude(date){
+function tropicalSun(date){
 
     return norm(
         Astronomy.EclipticLongitude(
@@ -1035,189 +859,169 @@ function sunLongitude(date){
             date
         )
     );
-
 }
 
 
-function moonLongitude(date){
-
-    /*
-       EclipticGeoMoon gives geocentric ecliptic
-       longitude of the Moon.
-    */
+function tropicalMoon(date){
 
     return norm(
         Astronomy.EclipticGeoMoon(date).elon
     );
-
 }
 
 
-function siderealMoonLongitude(date){
+function siderealSun(date){
 
     return norm(
-        moonLongitude(date) -
-        ayanamsha(date)
+        tropicalSun(date) -
+        lahiriAyanamsha(date)
     );
-
 }
 
 
-function siderealSunLongitude(date){
+function siderealMoon(date){
 
     return norm(
-        sunLongitude(date) -
-        ayanamsha(date)
+        tropicalMoon(date) -
+        lahiriAyanamsha(date)
     );
-
 }
 
 
 /* =========================================================
-   15. TITHI INDEX
-   ========================================================= */
+   PANCHANG INDICES
+========================================================= */
 
-function tithiIndex(date){
+function getTithiIndex(date){
 
-    const elongation = norm(
-        moonLongitude(date) -
-        sunLongitude(date)
-    );
+    const elongation =
+        norm(
+            tropicalMoon(date) -
+            tropicalSun(date)
+        );
 
     return Math.floor(
         elongation / 12
     );
-
 }
 
 
-/* =========================================================
-   16. NAKSHATRA INDEX
-   ========================================================= */
-
-function nakshatraIndex(date){
-
-    const moon = siderealMoonLongitude(date);
+function getNakshatraIndex(date){
 
     return Math.floor(
-        moon / (360 / 27)
+        siderealMoon(date) /
+        (360/27)
     );
-
 }
 
 
-function nakshatraPada(date){
+function getNakshatraPada(date){
 
-    const moon = siderealMoonLongitude(date);
-
-    const nakSize = 360 / 27;
+    const size = 360/27;
 
     const inside =
-        moon % nakSize;
+        siderealMoon(date) % size;
 
     return Math.floor(
-        inside / (nakSize / 4)
+        inside / (size/4)
     ) + 1;
-
 }
 
 
-/* =========================================================
-   17. YOGA INDEX
-   ========================================================= */
+function getYogaIndex(date){
 
-function yogaIndex(date){
-
-    const value = norm(
-        siderealSunLongitude(date) +
-        siderealMoonLongitude(date)
-    );
+    const value =
+        norm(
+            siderealSun(date) +
+            siderealMoon(date)
+        );
 
     return Math.floor(
-        value / (360 / 27)
+        value / (360/27)
     );
-
 }
 
 
-/* =========================================================
-   18. KARANA INDEX
-   ========================================================= */
+function getKaranaIndex(date){
 
-function karanaIndex(date){
-
-    const elongation = norm(
-        moonLongitude(date) -
-        sunLongitude(date)
-    );
+    const elongation =
+        norm(
+            tropicalMoon(date) -
+            tropicalSun(date)
+        );
 
     return Math.floor(
         elongation / 6
     );
+}
 
+
+function getKaranaName(index){
+
+    if(index === 0){
+        return "কিমস্তুঘ্ন";
+    }
+
+    if(index >= 1 && index <= 56){
+        return movableKaranas[
+            (index-1)%7
+        ];
+    }
+
+    return fixedKaranas[index] || "";
 }
 
 
 /* =========================================================
-   19. GENERIC TRANSITION SEARCH
-   ========================================================= */
+   TRANSITION SEARCH
+========================================================= */
 
 function findTransition(
-    startDate,
+    start,
     indexFunction,
-    maxHours=36
+    hours=36
 ){
 
     const startIndex =
-        indexFunction(startDate);
+        indexFunction(start);
 
-    let previousDate = startDate;
+    let previousTime =
+        start.getTime();
 
     let previousIndex =
         startIndex;
 
-    /*
-       10-minute scan.
-    */
-
-    const stepMs =
+    const step =
         10 * 60 * 1000;
 
-    const endDate =
-        new Date(
-            startDate.getTime() +
-            maxHours * 60 * 60 * 1000
-        );
+    const end =
+        start.getTime() +
+        hours * 60 * 60 * 1000;
 
     for(
-        let t = startDate.getTime() + stepMs;
-        t <= endDate.getTime();
-        t += stepMs
+        let t = start.getTime()+step;
+        t <= end;
+        t += step
     ){
 
-        const currentDate =
-            new Date(t);
+        const d = new Date(t);
 
-        const currentIndex =
-            indexFunction(currentDate);
+        const index =
+            indexFunction(d);
 
-        if(currentIndex !== previousIndex){
-
-            /*
-               Binary search for exact transition.
-            */
+        if(index !== previousIndex){
 
             let low =
-                previousDate.getTime();
+                previousTime;
 
             let high =
-                currentDate.getTime();
+                t;
 
-            for(let i=0;i<40;i++){
+            for(let i=0;i<45;i++){
 
                 const mid =
                     Math.floor(
-                        (low + high) / 2
+                        (low+high)/2
                     );
 
                 const midDate =
@@ -1232,17 +1036,13 @@ function findTransition(
                 else{
                     high = mid;
                 }
-
             }
 
             return new Date(high);
         }
 
-        previousDate =
-            currentDate;
-
-        previousIndex =
-            currentIndex;
+        previousTime = t;
+        previousIndex = index;
     }
 
     return null;
@@ -1250,8 +1050,8 @@ function findTransition(
 
 
 /* =========================================================
-   20. SUNRISE / SUNSET / MOONRISE / MOONSET
-   ========================================================= */
+   RISE / SET
+========================================================= */
 
 function getRiseSet(date){
 
@@ -1266,9 +1066,10 @@ function getRiseSet(date){
     let moonrise = null;
     let moonset = null;
 
+
     try{
 
-        const sr =
+        const r =
             Astronomy.SearchRiseSet(
                 Astronomy.Body.Sun,
                 OBSERVER,
@@ -1277,52 +1078,18 @@ function getRiseSet(date){
                 1
             );
 
-        if(sr){
-            sunrise = sr.date;
+        if(r){
+            sunrise = r.date;
         }
 
     }catch(e){
-        console.warn("Sunrise:",e);
+        console.log(e);
     }
 
 
     try{
 
-        const ss =
-            Astronomy.SearchRiseSet(
-                Astronomy.Body.Sun,
-                OBSERVER,
-                +1,
-                nextMidnight,
-                1
-            );
-
-        /*
-           Search next sunrise and use previous day
-           as reference if necessary.
-        */
-
-        if(ss){
-
-            const candidate =
-                ss.date;
-
-            if(
-                candidate >= midnight &&
-                candidate < nextMidnight
-            ){
-                sunrise = candidate;
-            }
-        }
-
-    }catch(e){
-        console.warn("Sunrise fallback:",e);
-    }
-
-
-    try{
-
-        const sunsetSearch =
+        const r =
             Astronomy.SearchRiseSet(
                 Astronomy.Body.Sun,
                 OBSERVER,
@@ -1331,27 +1098,18 @@ function getRiseSet(date){
                 1
             );
 
-        if(sunsetSearch){
-
-            const candidate =
-                sunsetSearch.date;
-
-            if(
-                candidate >= midnight &&
-                candidate <= nextMidnight
-            ){
-                sunset = candidate;
-            }
+        if(r){
+            sunset = r.date;
         }
 
     }catch(e){
-        console.warn("Sunset:",e);
+        console.log(e);
     }
 
 
     try{
 
-        const mr =
+        const r =
             Astronomy.SearchRiseSet(
                 Astronomy.Body.Moon,
                 OBSERVER,
@@ -1360,27 +1118,24 @@ function getRiseSet(date){
                 1
             );
 
-        if(mr){
-
-            const candidate =
-                mr.date;
+        if(r){
 
             if(
-                candidate >= midnight &&
-                candidate < nextMidnight
+                r.date >= midnight &&
+                r.date < nextMidnight
             ){
-                moonrise = candidate;
+                moonrise = r.date;
             }
         }
 
     }catch(e){
-        console.warn("Moonrise:",e);
+        console.log(e);
     }
 
 
     try{
 
-        const ms =
+        const r =
             Astronomy.SearchRiseSet(
                 Astronomy.Body.Moon,
                 OBSERVER,
@@ -1389,67 +1144,18 @@ function getRiseSet(date){
                 1
             );
 
-        if(ms){
-
-            const candidate =
-                ms.date;
+        if(r){
 
             if(
-                candidate >= midnight &&
-                candidate <= nextMidnight
+                r.date >= midnight &&
+                r.date <= nextMidnight
             ){
-                moonset = candidate;
+                moonset = r.date;
             }
         }
 
     }catch(e){
-        console.warn("Moonset:",e);
-    }
-
-
-    /*
-       Extra fallback searches.
-    */
-
-    if(!sunrise){
-
-        try{
-
-            const r =
-                Astronomy.SearchRiseSet(
-                    Astronomy.Body.Sun,
-                    OBSERVER,
-                    +1,
-                    midnight,
-                    2
-                );
-
-            if(r){
-                sunrise = r.date;
-            }
-
-        }catch(e){}
-    }
-
-
-    if(!sunset){
-
-        try{
-
-            const r =
-                Astronomy.SearchRiseSet(
-                    Astronomy.Body.Sun,
-                    OBSERVER,
-                    -1,
-                    nextMidnight,
-                    -2
-                );
-
-            if(r){
-                sunset = r.date;
-            }
-
-        }catch(e){}
+        console.log(e);
     }
 
 
@@ -1459,77 +1165,64 @@ function getRiseSet(date){
         moonrise,
         moonset
     };
-
 }
 
 
 /* =========================================================
-   21. PANCHANG DATA FOR A DATE
-   ========================================================= */
+   COMPLETE PANCHANG
+========================================================= */
 
 function calculatePanchang(date){
 
-    const riseSet =
+    const events =
         getRiseSet(date);
 
     /*
-       Panchang values are taken at sunrise.
-       If sunrise cannot be found, use local midnight.
+       Panchang day starts at sunrise.
     */
 
     const reference =
-        riseSet.sunrise ||
+        events.sunrise ||
         localMidnight(date);
 
 
-    const tIndex =
-        tithiIndex(reference);
+    const ti =
+        getTithiIndex(reference);
 
-    const nIndex =
-        nakshatraIndex(reference);
+    const ni =
+        getNakshatraIndex(reference);
 
-    const yIndex =
-        yogaIndex(reference);
+    const yi =
+        getYogaIndex(reference);
 
-    const kIndex =
-        karanaIndex(reference);
+    const ki =
+        getKaranaIndex(reference);
 
 
     const tithiEnd =
         findTransition(
             reference,
-            tithiIndex,
-            36
+            getTithiIndex
         );
-
 
     const nakshatraEnd =
         findTransition(
             reference,
-            nakshatraIndex,
-            36
+            getNakshatraIndex
         );
-
 
     const yogaEnd =
         findTransition(
             reference,
-            yogaIndex,
-            36
+            getYogaIndex
         );
-
 
     const karanaEnd =
         findTransition(
             reference,
-            karanaIndex,
-            36
+            getKaranaIndex
         );
 
-
-    /*
-       Next karana.
-    */
 
     let nextKaranaEnd = null;
 
@@ -1538,8 +1231,7 @@ function calculatePanchang(date){
         nextKaranaEnd =
             findTransition(
                 karanaEnd,
-                karanaIndex,
-                36
+                getKaranaIndex
             );
     }
 
@@ -1548,68 +1240,47 @@ function calculatePanchang(date){
 
         reference,
 
-        tithiIndex:tIndex,
-
-        tithiName:tithis[tIndex],
-
+        tithiIndex:ti,
+        tithiName:tithis[ti],
         paksha:
-            tIndex < 15
+            ti < 15
             ? "শুক্লপক্ষ"
             : "কৃষ্ণপক্ষ",
-
         tithiEnd,
 
-        nakshatraIndex:nIndex,
-
-        nakshatraName:
-            nakshatras[nIndex],
-
+        nakshatraIndex:ni,
+        nakshatraName:nakshatras[ni],
         nakshatraPada:
-            nakshatraPada(reference),
-
+            getNakshatraPada(reference),
         nakshatraEnd,
 
-        yogaIndex:yIndex,
-
-        yogaName:
-            yogas[yIndex],
-
+        yogaIndex:yi,
+        yogaName:yogas[yi],
         yogaEnd,
 
-        karanaIndex:kIndex,
-
-        karanaName:
-            karanaName(kIndex),
-
+        karanaIndex:ki,
+        karanaName:getKaranaName(ki),
         karanaEnd,
 
         nextKaranaName:
-            karanaName(
-                Math.min(kIndex + 1,59)
+            getKaranaName(
+                Math.min(ki+1,59)
             ),
 
         nextKaranaEnd,
 
-        sunrise:
-            riseSet.sunrise,
-
-        sunset:
-            riseSet.sunset,
-
-        moonrise:
-            riseSet.moonrise,
-
-        moonset:
-            riseSet.moonset
+        sunrise:events.sunrise,
+        sunset:events.sunset,
+        moonrise:events.moonrise,
+        moonset:events.moonset
 
     };
-
 }
 
 
 /* =========================================================
-   22. SPECIAL TITHI SYMBOL
-   ========================================================= */
+   SPECIAL SYMBOL
+========================================================= */
 
 function specialTithi(index){
 
@@ -1626,50 +1297,66 @@ function specialTithi(index){
     }
 
     return "";
-
 }
 
 
 /* =========================================================
-   23. BENGALI DATE
-   ========================================================= */
+   BENGALI DATE
+========================================================= */
 
-function bengaliDateForGregorian(
-    gregorianDate
-){
+function getBengaliDate(date){
 
     /*
-       Uses the fixed Bengali month table
-       already defined for this project.
+       Compare calendar dates rather than timestamps.
     */
+
+    const p =
+        localParts(date);
+
+    const target =
+        new Date(
+            Date.UTC(
+                p.year,
+                p.month-1,
+                p.day
+            )
+        );
+
 
     for(let i=0;i<months.length;i++){
 
         const m =
             months[i];
 
+        const parts =
+            m.start.split("-");
+
         const start =
             new Date(
-                m.start + "T00:00:00"
+                Date.UTC(
+                    Number(parts[0]),
+                    Number(parts[1])-1,
+                    Number(parts[2])
+                )
             );
 
         const end =
             new Date(start);
 
-        end.setDate(
-            end.getDate() + m.days
+        end.setUTCDate(
+            end.getUTCDate()+m.days
         );
 
+
         if(
-            gregorianDate >= start &&
-            gregorianDate < end
+            target >= start &&
+            target < end
         ){
 
-            const difference =
+            const diff =
                 Math.floor(
                     (
-                        gregorianDate -
-                        start
+                        target-start
                     ) /
                     86400000
                 );
@@ -1677,65 +1364,49 @@ function bengaliDateForGregorian(
             return {
 
                 monthIndex:i,
-
                 monthName:m.bn,
-
                 monthEnglish:m.en,
-
-                date:
-                    difference + 1,
-
+                date:diff+1,
                 year:1433
 
             };
-
         }
-
     }
 
-
     return null;
-
 }
 
 
 /* =========================================================
-   24. GET DATE FROM MONTH + DAY
-   ========================================================= */
+   GREGORIAN DATE FOR BENGALI DATE
+========================================================= */
 
 function getGregorianDate(
     monthIndex,
-    dayNumber
+    day
 ){
 
     const m =
         months[monthIndex];
 
-    const start =
-        new Date(
-            m.start + "T00:00:00"
-        );
+    const p =
+        m.start.split("-");
 
-    const d =
-        new Date(start);
-
-    d.setDate(
-        d.getDate() +
-        dayNumber -
-        1
+    return istDate(
+        Number(p[0]),
+        Number(p[1])-1,
+        Number(p[2])+day-1,
+        12
     );
-
-    return d;
-
 }
 
 
 /* =========================================================
-   25. SHUBHKARMA FOR DATE
-   ========================================================= */
+   SHUBHKARMA
+========================================================= */
 
-function getShubhkarmaForDate(
-    monthName,
+function getShubhkarma(
+    month,
     day
 ){
 
@@ -1744,39 +1415,28 @@ function getShubhkarmaForDate(
     Object.keys(shubhkarma)
     .forEach(type=>{
 
-        const days =
-            shubhkarma[type][monthName] || [];
+        const dates =
+            shubhkarma[type][month] || [];
 
-        if(days.includes(day)){
+        if(dates.includes(day)){
             result.push(type);
         }
 
     });
 
     return result;
-
 }
 
 
 /* =========================================================
-   26. MONTH STATE
-   ========================================================= */
+   SHUBHKARMA MONTH BOX
+========================================================= */
 
-let currentMonthIndex = 4;
-
-let selectedDate = null;
-
-
-/* =========================================================
-   27. CREATE SHUBHKARMA AREA
-   ========================================================= */
-
-function createShubhkarma(
-    month
-){
+function createShubhkarma(month){
 
     let html = `
         <div class="shubhkarma">
+
             <div class="shubhkarma-title">
                 🌸 শুভকর্ম — ${month.bn}
             </div>
@@ -1789,20 +1449,21 @@ function createShubhkarma(
     Object.keys(shubhkarma)
     .forEach(type=>{
 
-        const days =
+        const dates =
             shubhkarma[type][month.bn] || [];
 
-        if(days.length > 0){
+        if(dates.length){
 
             found = true;
 
             html += `
                 <div class="shubh-item">
-                    ${type}: 
-                    ${days.map(d=>bnNumber(d)).join(", ")}
+                    ${type}:
+                    ${dates.map(
+                        d=>bnNumber(d)
+                    ).join(", ")}
                 </div>
             `;
-
         }
 
     });
@@ -1812,10 +1473,9 @@ function createShubhkarma(
 
         html += `
             <div class="shubh-item">
-                এই মাসে সংরক্ষিত শুভকর্মের তারিখ নেই
+                এই মাসে সংরক্ষিত শুভকর্ম নেই
             </div>
         `;
-
     }
 
 
@@ -1825,27 +1485,27 @@ function createShubhkarma(
     `;
 
     return html;
-
 }
 
 
 /* =========================================================
-   28. RENDER MONTH
-   ========================================================= */
+   MONTH STATE
+========================================================= */
 
-async function renderMonth(){
+let currentMonthIndex = 4;
+let selectedDate = null;
+
+
+/* =========================================================
+   RENDER MONTH
+========================================================= */
+
+function renderMonth(){
 
     const container =
         document.getElementById(
             "calendarContainer"
         );
-
-
-    /*
-       IMPORTANT:
-       Build the complete month HTML first.
-       This prevents the calendar box from disappearing.
-    */
 
     const month =
         months[currentMonthIndex];
@@ -1858,8 +1518,7 @@ async function renderMonth(){
             <div class="month-header">
 
                 <button
-                    onclick="previousMonth()"
-                    aria-label="Previous month">
+                    onclick="previousMonth()">
                     ‹
                 </button>
 
@@ -1870,8 +1529,7 @@ async function renderMonth(){
                 </div>
 
                 <button
-                    onclick="nextMonth()"
-                    aria-label="Next month">
+                    onclick="nextMonth()">
                     ›
                 </button>
 
@@ -1884,11 +1542,7 @@ async function renderMonth(){
 
 
     weekdays.forEach(day=>{
-
-        html += `
-            <div>${day}</div>
-        `;
-
+        html += `<div>${day}</div>`;
     });
 
 
@@ -1900,16 +1554,17 @@ async function renderMonth(){
 
 
     /*
-       Find first weekday.
+       Correct weekday of first Gregorian date.
     */
 
-    const firstDate =
-        new Date(
-            month.start + "T00:00:00"
+    const first =
+        getGregorianDate(
+            currentMonthIndex,
+            1
         );
 
     const firstWeekday =
-        firstDate.getDay();
+        first.getDay();
 
 
     for(
@@ -1921,13 +1576,8 @@ async function renderMonth(){
         html += `
             <div class="day-box empty"></div>
         `;
-
     }
 
-
-    /*
-       Render every Bengali date.
-    */
 
     for(
         let day=1;
@@ -1935,26 +1585,14 @@ async function renderMonth(){
         day++
     ){
 
-        const gregorian =
+        const date =
             getGregorianDate(
                 currentMonthIndex,
                 day
             );
 
-
         const panchang =
-            calculatePanchang(
-                gregorian
-            );
-
-
-        const bengali =
-            bnNumber(day);
-
-
-        const english =
-            gregorian.getDate();
-
+            calculatePanchang(date);
 
         const special =
             specialTithi(
@@ -1962,17 +1600,14 @@ async function renderMonth(){
             );
 
 
-        const shubh =
-            getShubhkarmaForDate(
-                month.bn,
-                day
-            );
-
-
         const selected =
             selectedDate &&
-            selectedDate.getTime() ===
-            gregorian.getTime()
+            localParts(selectedDate).year ===
+            localParts(date).year &&
+            localParts(selectedDate).month ===
+            localParts(date).month &&
+            localParts(selectedDate).day ===
+            localParts(date).day
             ? " selected"
             : "";
 
@@ -1981,20 +1616,22 @@ async function renderMonth(){
 
             <div
                 class="day-box${selected}"
-                onclick="showDateDetails(
-                    ${currentMonthIndex},
-                    ${day}
-                )"
+                onclick="
+                    showDateDetails(
+                        ${currentMonthIndex},
+                        ${day}
+                    )
+                "
             >
 
                 <div class="date-line">
 
                     <span class="bn-date">
-                        ${bengali}
+                        ${bnNumber(day)}
                     </span>
 
                     <span class="en-date">
-                        ${english}
+                        ${localParts(date).day}
                     </span>
 
                 </div>
@@ -2013,27 +1650,9 @@ async function renderMonth(){
                     ${special}
                 </div>
 
-                <div class="day-summary">
-                    ⭐ ${panchang.nakshatraName}
-                </div>
-
-                ${
-                    shubh.length
-                    ? `
-                    <div
-                        class="day-summary"
-                        title="${shubh.join(" • ")}"
-                    >
-                        🌸 ${shubh[0]}
-                    </div>
-                    `
-                    : ""
-                }
-
             </div>
 
         `;
-
     }
 
 
@@ -2044,17 +1663,19 @@ async function renderMonth(){
 
 
     /*
-       Put complete HTML into container only once.
+       Important:
+       Assign complete HTML only after everything
+       has been built. This prevents the box from
+       disappearing.
     */
 
     container.innerHTML = html;
-
 }
 
 
 /* =========================================================
-   29. PREVIOUS MONTH
-   ========================================================= */
+   MONTH NAVIGATION
+========================================================= */
 
 function previousMonth(){
 
@@ -2062,21 +1683,15 @@ function previousMonth(){
 
     if(currentMonthIndex < 0){
         currentMonthIndex =
-            months.length - 1;
+            months.length-1;
     }
 
     selectedDate = null;
 
     renderMonth();
-
     clearDetails();
-
 }
 
-
-/* =========================================================
-   30. NEXT MONTH
-   ========================================================= */
 
 function nextMonth(){
 
@@ -2092,15 +1707,13 @@ function nextMonth(){
     selectedDate = null;
 
     renderMonth();
-
     clearDetails();
-
 }
 
 
 /* =========================================================
-   31. CLEAR DETAILS
-   ========================================================= */
+   CLEAR DETAILS
+========================================================= */
 
 function clearDetails(){
 
@@ -2109,23 +1722,19 @@ function clearDetails(){
     ).innerHTML =
         "একটি তারিখ নির্বাচন করুন";
 
-
     document.getElementById(
         "detailContent"
     ).innerHTML = `
-
         <div class="loading">
             ক্যালেন্ডার থেকে একটি তারিখে ক্লিক করুন।
         </div>
-
     `;
-
 }
 
 
 /* =========================================================
-   32. SHOW DATE DETAILS
-   ========================================================= */
+   SHOW FULL PANCHANG
+========================================================= */
 
 function showDateDetails(
     monthIndex,
@@ -2142,21 +1751,19 @@ function showDateDetails(
     const month =
         months[monthIndex];
 
-
     const panchang =
         calculatePanchang(
             selectedDate
         );
 
-
     const bengali =
-        bengaliDateForGregorian(
+        getBengaliDate(
             selectedDate
         );
 
 
     /*
-       Re-render so selected box becomes yellow.
+       Highlight selected box.
     */
 
     renderMonth();
@@ -2166,9 +1773,10 @@ function showDateDetails(
         "detailDate"
     ).innerHTML = `
 
-        🌸 ${month.bn}
-        ${bnNumber(day)}
-        ${bnNumber(1433)}
+        🌸
+        ${bengali.monthName}
+        ${bnNumber(bengali.date)}
+        ${bnNumber(bengali.year)}
 
         <br>
 
@@ -2176,16 +1784,14 @@ function showDateDetails(
             font-size:13px;
             color:#555;
         ">
-            ${formatFullEnglishDate(
-                selectedDate
-            )}
+            ${formatFullDate(selectedDate)}
         </span>
 
     `;
 
 
     const shubh =
-        getShubhkarmaForDate(
+        getShubhkarma(
             month.bn,
             day
         );
@@ -2217,11 +1823,10 @@ function showDateDetails(
             </div>
 
             <div class="info">
-                এই তারিখে সংরক্ষিত শুভকর্মের দিন নেই।
+                এই তারিখে সংরক্ষিত শুভকর্ম নেই।
             </div>
 
         `;
-
     }
 
 
@@ -2233,80 +1838,69 @@ function showDateDetails(
 
             <div class="info">
                 <strong>📅 বাংলা তারিখ</strong><br>
-                ${bengali
-                    ? bengali.monthName +
-                      " " +
-                      bnNumber(bengali.date) +
-                      " " +
-                      bnNumber(bengali.year)
-                    : "—"
-                }
+                ${bengali.monthName}
+                ${bnNumber(bengali.date)}
+                ${bnNumber(bengali.year)}
             </div>
-
 
             <div class="info">
                 <strong>📆 ইংরেজি তারিখ</strong><br>
-                ${formatFullEnglishDate(
-                    selectedDate
-                )}
+                ${formatFullDate(selectedDate)}
             </div>
-
 
             <div class="info">
                 <strong>🗓️ বার</strong><br>
-                ${
-                    weekdaysFull[
-                        selectedDate.getDay()
-                    ]
-                }
+                ${weekdaysFull[
+                    selectedDate.getDay()
+                ]}
             </div>
-
 
             <div class="info">
                 <strong>🌗 পক্ষ</strong><br>
                 ${panchang.paksha}
             </div>
 
-
             <div class="info">
                 <strong>🪔 তিথি</strong><br>
                 ${panchang.tithiName}
                 <br>
-                শেষ: ${formatTime(
+                শেষ:
+                ${formatTime(
                     panchang.tithiEnd
                 )}
             </div>
-
 
             <div class="info">
                 <strong>⭐ নক্ষত্র</strong><br>
                 ${panchang.nakshatraName}
                 <br>
-                পাদ: ${bnNumber(
+                পাদ:
+                ${bnNumber(
                     panchang.nakshatraPada
                 )}
                 <br>
-                শেষ: ${formatTime(
+                শেষ:
+                ${formatTime(
                     panchang.nakshatraEnd
                 )}
             </div>
-
 
             <div class="info">
                 <strong>🔯 যোগ</strong><br>
                 ${panchang.yogaName}
                 <br>
-                শেষ: ${formatTime(
+                শেষ:
+                ${formatTime(
                     panchang.yogaEnd
                 )}
             </div>
-
 
             <div class="info">
                 <strong>🌀 করণ</strong><br>
                 ${panchang.karanaName}
                 <br>
-                শেষ: ${formatTime(
+                শেষ:
+                ${formatTime(
                     panchang.karanaEnd
                 )}
             </div>
@@ -2328,7 +1922,6 @@ function showDateDetails(
                 )}
             </div>
 
-
             <div class="info">
                 <strong>🌇 সূর্যাস্ত</strong><br>
                 ${formatTime(
@@ -2336,14 +1929,12 @@ function showDateDetails(
                 )}
             </div>
 
-
             <div class="info">
                 <strong>🌙 চন্দ্রোদয়</strong><br>
                 ${formatTime(
                     panchang.moonrise
                 )}
             </div>
-
 
             <div class="info">
                 <strong>🌘 চন্দ্রাস্ত</strong><br>
@@ -2358,7 +1949,6 @@ function showDateDetails(
         <div class="section-title">
             🌀 পরবর্তী করণ
         </div>
-
 
         <div class="info">
 
@@ -2381,10 +1971,6 @@ function showDateDetails(
     `;
 
 
-    /*
-       Scroll details into view on mobile.
-    */
-
     setTimeout(()=>{
 
         document.getElementById(
@@ -2395,24 +1981,21 @@ function showDateDetails(
         });
 
     },100);
-
 }
 
 
 /* =========================================================
-   33. INITIAL LOAD
-   ========================================================= */
+   START
+========================================================= */
 
 window.addEventListener(
     "load",
-    function(){
-
+    ()=>{
         renderMonth();
-
     }
 );
 
 </script>
 
 </body>
-      </html>
+</html>
