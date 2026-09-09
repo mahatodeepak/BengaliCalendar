@@ -2,323 +2,485 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>বাংলা ক্যালেন্ডার ১৪৩৩</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Advanced Panchang | বাংলা পঞ্জিকা</title>
+
+<meta name="description"
+content="Advanced Bengali Panchang - Tithi, Nakshatra, Yoga, Karana, Sunrise, Sunset, Moonrise and Moonset">
 
 <style>
-* {
-    box-sizing: border-box;
+
+*{
+    box-sizing:border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
+body{
+    margin:0;
+    font-family:
+        "Noto Sans Bengali",
+        "Noto Sans",
+        Arial,
+        sans-serif;
+
+    background:#f4f6fb;
+    color:#222;
 }
 
-body {
-    font-family: "Noto Sans Bengali", "Nirmala UI", Arial, sans-serif;
-    background: #f5f5f5;
-    color: #222;
-}
-
-.container {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    padding: 8px;
-}
-
-/* TITLE */
-
-h1 {
-    text-align: center;
-    margin: 8px 0 3px;
-    font-size: 24px;
-    color: #8b1e1e;
-}
-
-.subtitle {
-    text-align: center;
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 10px;
+.container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:10px;
 }
 
 
-/* MONTH CARD */
+/* =========================
+   HEADER
+========================= */
 
-.month-card {
-    width: 100%;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+.top-header{
+    background:
+        linear-gradient(
+            135deg,
+            #512da8,
+            #7b1fa2
+        );
+
+    color:white;
+
+    padding:20px 12px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    box-shadow:
+        0 4px 14px rgba(0,0,0,.15);
+
+    margin-bottom:12px;
+}
+
+.top-header h1{
+    margin:0;
+
+    font-size:26px;
+}
+
+.top-header p{
+    margin:6px 0 0;
+
+    font-size:13px;
+
+    opacity:.9;
 }
 
 
-/* MONTH HEADER */
+/* =========================
+   DATE NAVIGATION
+========================= */
 
-.month-header {
-    width: 100%;
-    min-height: 58px;
-    display: flex;
-    align-items: center;
-    background: #8b1e1e;
-    color: white;
+.date-navigation{
+
+    display:grid;
+
+    grid-template-columns:
+        55px 1fr 55px;
+
+    align-items:center;
+
+    background:white;
+
+    border-radius:14px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.10);
+
+    margin-bottom:12px;
+
+    overflow:hidden;
 }
 
-.month-nav {
-    flex: 0 0 44px;
-    width: 44px;
-    height: 44px;
-    margin: 0 5px;
-    border: 0;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.15);
-    color: white;
-    font-size: 31px;
-    cursor: pointer;
+.nav-button{
+
+    height:75px;
+
+    border:0;
+
+    background:#6a1b9a;
+
+    color:white;
+
+    font-size:38px;
+
+    cursor:pointer;
 }
 
-.month-nav:disabled {
-    opacity: 0.35;
-    cursor: default;
+.nav-button:hover{
+    background:#4a148c;
 }
 
-.month-name {
-    flex: 1;
-    min-width: 0;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.date-title{
+    text-align:center;
+
+    padding:8px;
 }
 
-.month-name small {
-    font-size: 12px;
-    font-weight: normal;
+.date-title .bn-date{
+
+    font-size:25px;
+
+    font-weight:bold;
+
+    color:#6a1b9a;
 }
 
+.date-title .en-date{
 
-/* SHUBHKARMA */
+    display:block;
 
-.shubhkarma {
-    padding: 9px 11px;
-    background: #fff8e8;
-    border-bottom: 1px solid #eee;
-}
+    font-size:13px;
 
-.shubh-title {
-    font-size: 17px;
-    font-weight: bold;
-    color: #8b1e1e;
-    margin-bottom: 4px;
-}
+    color:#777;
 
-.shubh-row {
-    font-size: 13px;
-    line-height: 1.75;
-}
-
-
-/* WEEKDAYS */
-
-.weekdays {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    background: #eeeeee;
-}
-
-.weekday {
-    text-align: center;
-    padding: 7px 1px;
-    font-size: 11px;
-    font-weight: bold;
-    color: #555;
+    margin-top:2px;
 }
 
 
-/* CALENDAR */
+/* =========================
+   LOCATION
+========================= */
 
-.calendar {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+.location-box{
+
+    background:#fff8e1;
+
+    border:1px solid #f0dfaa;
+
+    border-radius:12px;
+
+    padding:10px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    margin-bottom:12px;
 }
 
 
-/* EMPTY */
+/* =========================
+   MAIN PANCHANG CARD
+========================= */
 
-.empty-cell {
-    width: 100%;
-    height: 102px;
-    background: #fafafa;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+.panchang-card{
+
+    background:white;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.10);
+
+    overflow:hidden;
+
+    margin-bottom:12px;
+}
+
+.card-title{
+
+    background:#6a1b9a;
+
+    color:white;
+
+    padding:12px;
+
+    text-align:center;
+
+    font-size:19px;
+
+    font-weight:bold;
 }
 
 
-/* DAY */
+/* =========================
+   PANCHANG GRID
+========================= */
 
-.day-box {
-    width: 100%;
-    height: 102px;
-    min-width: 0;
-    padding: 5px 2px;
-    background: white;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    overflow: hidden;
-    cursor: pointer;
+.panchang-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:1px;
+
+    background:#e7e7e7;
 }
 
-.day-box:hover {
-    background: #fff8e8;
+.panchang-item{
+
+    background:white;
+
+    padding:13px 10px;
+
+    min-height:90px;
+
+    text-align:center;
 }
 
-.day-box.selected {
-    background: #fff1c7;
-    box-shadow: inset 0 0 0 2px #d08b00;
+.panchang-icon{
+
+    font-size:23px;
+
+    margin-bottom:4px;
 }
 
+.panchang-label{
 
-/* DATE */
+    font-size:13px;
 
-.date-line {
-    width: 100%;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    white-space: nowrap;
+    color:#777;
+
+    margin-bottom:3px;
 }
 
-.bengali-date {
-    font-size: 22px;
-    font-weight: bold;
-    color: #111;
+.panchang-value{
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    color:#4a148c;
 }
 
-.english-date {
-    font-size: 10px;
-    color: #777;
-}
+.panchang-end{
 
+    margin-top:4px;
 
-/* TITHI */
+    font-size:11px;
 
-.tithi-name {
-    width: 100%;
-    height: 25px;
-    text-align: center;
-    font-size: 11px;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.tithi-time {
-    width: 100%;
-    height: 22px;
-    text-align: center;
-    font-size: 10px;
-    color: #777;
-    white-space: nowrap;
+    color:#777;
 }
 
 
-/* DETAILS */
+/* =========================
+   SPECIAL DAY
+========================= */
 
-.details {
-    display: none;
-    margin-top: 12px;
-    padding: 13px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-}
+.special-day{
 
-.details.show {
-    display: block;
-}
+    text-align:center;
 
-.details-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #8b1e1e;
-    margin-bottom: 7px;
-}
+    padding:14px;
 
-.detail-section {
-    line-height: 1.7;
-    margin-bottom: 9px;
+    background:#fff8e1;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#6a1b9a;
 }
 
 
-/* MOBILE */
+/* =========================
+   SUN MOON CARD
+========================= */
 
-@media (max-width:600px) {
+.sunmoon-grid{
 
-    .container {
-        padding: 5px;
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:1px;
+
+    background:#e7e7e7;
+}
+
+.sunmoon-item{
+
+    background:white;
+
+    padding:15px;
+
+    text-align:center;
+}
+
+.sunmoon-icon{
+
+    font-size:28px;
+}
+
+.sunmoon-label{
+
+    font-size:13px;
+
+    color:#777;
+
+    margin-top:4px;
+}
+
+.sunmoon-time{
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    color:#4a148c;
+
+    margin-top:4px;
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.details{
+
+    padding:14px;
+
+    background:white;
+}
+
+.detail-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:10px 2px;
+
+    border-bottom:1px solid #eee;
+
+    font-size:14px;
+}
+
+.detail-row:last-child{
+    border-bottom:0;
+}
+
+.detail-name{
+    font-weight:bold;
+}
+
+.detail-value{
+    text-align:right;
+
+    color:#5d4037;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+
+    padding:25px;
+
+    text-align:center;
+
+    font-size:16px;
+
+    color:#777;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    margin-top:15px;
+
+    padding:15px;
+
+    text-align:center;
+
+    font-size:11px;
+
+    color:#777;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .container{
+        padding:7px;
     }
 
-    h1 {
-        font-size: 21px;
+    .top-header{
+        padding:16px 8px;
     }
 
-    .month-name {
-        font-size: 15px;
+    .top-header h1{
+        font-size:22px;
     }
 
-    .month-name small {
-        font-size: 10px;
+    .date-navigation{
+
+        grid-template-columns:
+            45px 1fr 45px;
     }
 
-    .month-nav {
-        flex-basis: 40px;
-        width: 40px;
-        height: 40px;
-        font-size: 29px;
+    .nav-button{
+        height:68px;
+
+        font-size:32px;
     }
 
-    .shubh-row {
-        font-size: 11px;
+    .date-title .bn-date{
+        font-size:21px;
     }
 
-    .weekday {
-        font-size: 9px;
+    .panchang-grid{
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .day-box,
-    .empty-cell {
-        height: 96px;
+    .panchang-item{
+        min-height:85px;
+        padding:10px 5px;
     }
 
-    .bengali-date {
-        font-size: 20px;
+    .panchang-value{
+        font-size:15px;
     }
 
-    .english-date {
-        font-size: 9px;
+    .sunmoon-time{
+        font-size:17px;
     }
 
-    .tithi-name {
-        font-size: 9px;
-    }
-
-    .tithi-time {
-        font-size: 8px;
-    }
 }
+
+
+/* =========================
+   VERY SMALL SCREEN
+========================= */
+
+@media(max-width:350px){
+
+    .panchang-grid,
+    .sunmoon-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
 </style>
 </head>
 
@@ -327,318 +489,326 @@ h1 {
 
 <div class="container">
 
-<h1>বাংলা ক্যালেন্ডার ১৪৩৩</h1>
 
-<div class="subtitle">
-বাংলা তারিখ • তিথি • শুভকর্ম • নক্ষত্র
-</div>
+    <!-- =========================
+         HEADER
+    ========================= -->
 
-<!-- ONLY ONE MONTH APPEARS HERE -->
-<div id="calendarContainer"></div>
+    <div class="top-header">
 
-<!-- SELECTED DATE DETAILS -->
-<div id="details" class="details">
+        <h1>
+            🌺 Advanced Panchang
+        </h1>
 
-    <div class="details-title">
-        🌸 শুভ মুহূর্ত
+        <p>
+            উন্নত বাংলা পঞ্জিকা • কলকাতা
+        </p>
+
     </div>
 
-    <div id="muhurtaDetails" class="detail-section">
+
+    <!-- =========================
+         DATE NAVIGATION
+    ========================= -->
+
+    <div class="date-navigation">
+
+        <button
+            class="nav-button"
+            id="previousDay">
+            ‹
+        </button>
+
+
+        <div class="date-title">
+
+            <div
+                class="bn-date"
+                id="bengaliDate">
+                গণনা হচ্ছে...
+            </div>
+
+            <span
+                class="en-date"
+                id="englishDate">
+                গণনা হচ্ছে...
+            </span>
+
+        </div>
+
+
+        <button
+            class="nav-button"
+            id="nextDay">
+            ›
+        </button>
+
     </div>
 
-    <div class="detail-section">
 
-        <b>⭐ নক্ষত্র</b>
+    <!-- =========================
+         LOCATION
+    ========================= -->
+
+    <div class="location-box">
+
+        📍 <strong>গণনার স্থান:</strong>
+        কলকাতা, পশ্চিমবঙ্গ
+
         <br>
 
-        <span id="nakshatraName">—</span>
+        22.5726° N,
+        88.3639° E
+
         <br>
 
-        <span id="nakshatraEnd">—</span>
+        🕐 Asia/Kolkata
 
     </div>
 
-</div>
+
+    <!-- =========================
+         PANCHANG
+    ========================= -->
+
+    <div class="panchang-card">
+
+        <div class="card-title">
+            🕉️ পঞ্চাঙ্গ
+        </div>
+
+        <div
+            id="panchangContent"
+            class="loading">
+
+            গণনা হচ্ছে...
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SUN / MOON
+    ========================= -->
+
+    <div class="panchang-card">
+
+        <div class="card-title">
+            ☀️ সূর্য ও 🌙 চন্দ্র
+        </div>
+
+        <div
+            id="sunMoonContent"
+            class="loading">
+
+            গণনা হচ্ছে...
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ASTRONOMICAL DETAILS
+    ========================= -->
+
+    <div class="panchang-card">
+
+        <div class="card-title">
+            🔭 জ্যোতির্বৈজ্ঞানিক তথ্য
+        </div>
+
+        <div
+            id="astronomyDetails"
+            class="details">
+
+            গণনা হচ্ছে...
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+
+        Advanced Panchang V1.4
+
+        <br>
+
+        Kolkata fixed location
+
+        <br>
+
+        Astronomical calculations powered by
+        Astronomy Engine
+
+    </div>
+
 
 </div>
+
+
+<!-- =====================================================
+     ASTRONOMY ENGINE
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.js"></script>
 
 
 <script>
 
 /* =====================================================
-   MONTH DATA
+   LOCATION
 ===================================================== */
 
-const months = [
+const LATITUDE = 22.5726;
 
-{
-name:"বৈশাখ",
-year:1433,
-english:"Boishakh",
-englishRange:"Apr–May 2026",
-start:"2026-04-15",
-days:31
-},
+const LONGITUDE = 88.3639;
 
-{
-name:"জ্যৈষ্ঠ",
-year:1433,
-english:"Joishtho",
-englishRange:"May–Jun 2026",
-start:"2026-05-16",
-days:31
-},
+const ELEVATION = 10;
 
-{
-name:"আষাঢ়",
-year:1433,
-english:"Asharh",
-englishRange:"Jun–Jul 2026",
-start:"2026-06-16",
-days:32
-},
-
-{
-name:"শ্রাবণ",
-year:1433,
-english:"Shraban",
-englishRange:"Jul–Aug 2026",
-start:"2026-07-18",
-days:32
-},
-
-{
-name:"ভাদ্র",
-year:1433,
-english:"Bhadro",
-englishRange:"Aug–Sep 2026",
-start:"2026-08-19",
-days:31
-},
-
-{
-name:"আশ্বিন",
-year:1433,
-english:"Ashwin",
-englishRange:"Sep–Oct 2026",
-start:"2026-09-19",
-days:31
-},
-
-{
-name:"কার্তিক",
-year:1433,
-english:"Kartik",
-englishRange:"Oct–Nov 2026",
-start:"2026-10-19",
-days:30
-},
-
-{
-name:"অগ্রহায়ণ",
-year:1433,
-english:"Agrahayan",
-englishRange:"Nov–Dec 2026",
-start:"2026-11-18",
-days:30
-},
-
-{
-name:"পৌষ",
-year:1433,
-english:"Poush",
-englishRange:"Dec 2026–Jan 2027",
-start:"2026-12-17",
-days:30
-},
-
-{
-name:"মাঘ",
-year:1433,
-english:"Magh",
-englishRange:"Jan–Feb 2027",
-start:"2027-01-16",
-days:30
-},
-
-{
-name:"ফাল্গুন",
-year:1433,
-english:"Falgun",
-englishRange:"Feb–Mar 2027",
-start:"2027-02-15",
-days:30
-},
-
-{
-name:"চৈত্র",
-year:1433,
-english:"Chaitra",
-englishRange:"Mar–Apr 2027",
-start:"2027-03-16",
-days:30
-}
-
-];
-
-
-/* =====================================================
-   SHUBHKARMA
-===================================================== */
-
-const shubhkarma = {
-
-"বিবাহ":[
-[7,19,23,29],
-[],
-[21,27],
-[3,4,6,7,12,13,16,17,21],
-[4,6,7,12,16,17],
-[1,10,13,14,28],
-[6,7,8,11,20,27],
-[4,7,8,9,18,22,24,25,26],
-[],
-[3,11,13,14,27,28],
-[3,9,11,16,24,29],
-[]
-],
-
-"গাত্রহরিদ্রা":[
-[1,6,15,17,19,22,24,26,29,30],
-[],
-[16,23,27],
-[2,3,5,7,9,12,13,14,17,19,23,27,28],
-[1,2,5,8,12,17,26,27],
-[3,5,6,9,10,13,19,24,28],
-[1,3,8,12,18,19,24,28,29],
-[3,8,9,17,19,26,27],
-[],
-[5,9,12,13,14,23,27],
-[8,9,12,13,15,25,26,29],
-[]
-],
-
-"অন্নপ্রাশন":[
-[5,15],
-[3,6,13],
-[2],
-[2,6,7],
-[8,26,27],
-[3,6,24,27],
-[3,24,25],
-[27],
-[25],
-[5,24,27],
-[5,6,25,26],
-[2,24,27]
-],
-
-"গৃহপ্রবেশ":[
-[],
-[],
-[2],
-[],
-[],
-[],
-[],
-[3,22,27],
-[],
-[],
-[5,6,25,26],
-[]
-],
-
-"উপনয়ন":[
-[],
-[],
-[4],
-[],
-[],
-[],
-[],
-[],
-[],
-[25,27],
-[3,26],
-[3]
-],
-
-"বিদ্যারম্ভ":[
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[25],
-[27],
-[5,26],
-[3,4]
-],
-
-"নামকরণ":[
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[]
-],
-
-"সাধভক্ষণ":[
-[6,9,10,15,17],
-[6,7,13],
-[2,30],
-[2,3,5,9],
-[1,8,10,26,31],
-[5,6,24,27],
-[3,4,24,25,29],
-[22,26,27],
-[25],
-[7,23,24,27],
-[5,6,25,26,29],
-[2,3,7,23,27]
-]
-
-};
+const TIME_ZONE = "Asia/Kolkata";
 
 
 /* =====================================================
    BENGALI NUMBERS
 ===================================================== */
 
-function bnNumber(number){
+function bnNumber(value){
 
-const digits="০১২৩৪৫৬৭৮৯";
+    const digits = [
+        "০","১","২","৩","৪",
+        "৫","৬","৭","৮","৯"
+    ];
 
-return String(number)
-.split("")
-.map(d=>digits[d] || d)
-.join("");
-
+    return String(value)
+        .split("")
+        .map(
+            x => digits[Number(x)] ?? x
+        )
+        .join("");
 }
 
 
 /* =====================================================
-   WEEKDAYS
+   BENGALI MONTHS
 ===================================================== */
 
-const weekdays=[
-"রবি",
-"সোম",
-"মঙ্গল",
-"বুধ",
-"বৃহঃ",
-"শুক্র",
-"শনি"
+const bengaliMonths = [
+
+    {
+        name:"বৈশাখ",
+        year:1433,
+        start:"2026-04-15",
+        days:31
+    },
+
+    {
+        name:"জ্যৈষ্ঠ",
+        year:1433,
+        start:"2026-05-16",
+        days:31
+    },
+
+    {
+        name:"আষাঢ়",
+        year:1433,
+        start:"2026-06-16",
+        days:32
+    },
+
+    {
+        name:"শ্রাবণ",
+        year:1433,
+        start:"2026-07-18",
+        days:32
+    },
+
+    {
+        name:"ভাদ্র",
+        year:1433,
+        start:"2026-08-19",
+        days:31
+    },
+
+    {
+        name:"আশ্বিন",
+        year:1433,
+        start:"2026-09-19",
+        days:31
+    },
+
+    {
+        name:"কার্তিক",
+        year:1433,
+        start:"2026-10-19",
+        days:30
+    },
+
+    {
+        name:"অগ্রহায়ণ",
+        year:1433,
+        start:"2026-11-18",
+        days:30
+    },
+
+    {
+        name:"পৌষ",
+        year:1433,
+        start:"2026-12-17",
+        days:30
+    },
+
+    {
+        name:"মাঘ",
+        year:1433,
+        start:"2027-01-16",
+        days:30
+    },
+
+    {
+        name:"ফাল্গুন",
+        year:1433,
+        start:"2027-02-15",
+        days:30
+    },
+
+    {
+        name:"চৈত্র",
+        year:1433,
+        start:"2027-03-16",
+        days:30
+    }
+
+];
+
+
+/* =====================================================
+   DATE STATE
+===================================================== */
+
+let selectedDate = new Date();
+
+selectedDate.setHours(
+    12,0,0,0
+);
+
+
+/* =====================================================
+   DAY NAMES
+===================================================== */
+
+const bengaliWeekdays = [
+
+    "রবিবার",
+    "সোমবার",
+    "মঙ্গলবার",
+    "বুধবার",
+    "বৃহস্পতিবার",
+    "শুক্রবার",
+    "শনিবার"
+
 ];
 
 
@@ -646,37 +816,24 @@ const weekdays=[
    TITHI
 ===================================================== */
 
-const tithis=[
-"প্রতিপদ",
-"দ্বিতীয়া",
-"তৃতীয়া",
-"চতুর্থী",
-"পঞ্চমী",
-"ষষ্ঠী",
-"সপ্তমী",
-"অষ্টমী",
-"নবমী",
-"দশমী",
-"একাদশী",
-"দ্বাদশী",
-"ত্রয়োদশী",
-"চতুর্দশী",
-"পূর্ণিমা",
-"প্রতিপদ",
-"দ্বিতীয়া",
-"তৃতীয়া",
-"চতুর্থী",
-"পঞ্চমী",
-"ষষ্ঠী",
-"সপ্তমী",
-"অষ্টমী",
-"নবমী",
-"দশমী",
-"একাদশী",
-"দ্বাদশী",
-"ত্রয়োদশী",
-"চতুর্দশী",
-"অমাবস্যা"
+const tithiNames = [
+
+    "প্রতিপদ",
+    "দ্বিতীয়া",
+    "তৃতীয়া",
+    "চতুর্থী",
+    "পঞ্চমী",
+    "ষষ্ঠী",
+    "সপ্তমী",
+    "অষ্টমী",
+    "নবমী",
+    "দশমী",
+    "একাদশী",
+    "দ্বাদশী",
+    "ত্রয়োদশী",
+    "চতুর্দশী",
+    "পূর্ণিমা"
+
 ];
 
 
@@ -684,111 +841,230 @@ const tithis=[
    NAKSHATRA
 ===================================================== */
 
-const nakshatras=[
-"অশ্বিনী",
-"ভরণী",
-"কৃত্তিকা",
-"রোহিণী",
-"মৃগশিরা",
-"আর্দ্রা",
-"পুনর্বসু",
-"পুষ্যা",
-"অশ্লেষা",
-"মঘা",
-"পূর্বফাল্গুনী",
-"উত্তরফাল্গুনী",
-"হস্তা",
-"চিত্রা",
-"স্বাতী",
-"বিশাখা",
-"অনুরাধা",
-"জ্যেষ্ঠা",
-"মূলা",
-"পূর্বাষাঢ়া",
-"উত্তরাষাঢ়া",
-"শ্রবণা",
-"ধনিষ্ঠা",
-"শতভিষা",
-"পূর্বভাদ্রপদ",
-"উত্তরভাদ্রপদ",
-"রেবতী"
+const nakshatraNames = [
+
+    "অশ্বিনী",
+    "ভরণী",
+    "কৃত্তিকা",
+    "রোহিণী",
+    "মৃগশিরা",
+    "আর্দ্রা",
+    "পুনর্বসু",
+    "পুষ্যা",
+    "অশ্লেষা",
+    "মঘা",
+    "পূর্বফাল্গুনী",
+    "উত্তরফাল্গুনী",
+    "হস্তা",
+    "চিত্রা",
+    "স্বাতী",
+    "বিশাখা",
+    "অনুরাধা",
+    "জ্যেষ্ঠা",
+    "মূলা",
+    "পূর্বাষাঢ়া",
+    "উত্তরাষাঢ়া",
+    "শ্রবণা",
+    "ধনিষ্ঠা",
+    "শতভিষা",
+    "পূর্বভাদ্রপদ",
+    "উত্তরভাদ্রপদ",
+    "রেবতী"
+
 ];
 
 
 /* =====================================================
-   SPECIAL TITHI
+   YOGA
 ===================================================== */
 
-function specialTithi(name){
+const yogaNames = [
 
-if(name==="পূর্ণিমা")
-return "🌕 পূর্ণিমা";
+    "বিষ্কম্ভ",
+    "প্রীতি",
+    "আয়ুষ্মান",
+    "সৌভাগ্য",
+    "শোভন",
+    "অতিগণ্ড",
+    "সুকর্মা",
+    "ধৃতি",
+    "শূল",
+    "গণ্ড",
+    "বৃদ্ধি",
+    "ধ্রুব",
+    "ব্যাঘাত",
+    "হর্ষণ",
+    "বজ্র",
+    "সিদ্ধি",
+    "ব্যতীপাত",
+    "বরীয়ান",
+    "পরিঘ",
+    "শিব",
+    "সিদ্ধ",
+    "সাধ্য",
+    "শুভ",
+    "শুক্ল",
+    "ব্রহ্ম",
+    "ইন্দ্র",
+    "বৈধৃতি"
 
-if(name==="অমাবস্যা")
-return "🌑 অমাবস্যা";
+];
 
-if(name==="একাদশী")
-return "🪔 একাদশী";
 
-return name;
+/* =====================================================
+   KARANA
+===================================================== */
 
+const karanaNames = [
+
+    "বব",
+    "বালব",
+    "কৌলব",
+    "তৈতিল",
+    "গর",
+    "বণিজ",
+    "বিষ্টি",
+    "শকুনি",
+    "চতুষ্পদ",
+    "নাগ",
+    "কিংস্তুঘ্ন"
+
+];
+
+
+/* =====================================================
+   NORMALIZE
+===================================================== */
+
+function normalize360(value){
+
+    value %= 360;
+
+    if(value < 0){
+        value += 360;
+    }
+
+    return value;
 }
 
 
 /* =====================================================
-   TIME
+   APPROXIMATE LAHIRI AYANAMSHA
 ===================================================== */
 
-function formatTime(minutes){
+function ayanamsha(date){
 
-minutes=Math.round(minutes);
+    const year =
+        date.getUTCFullYear()
+        +
+        date.getUTCMonth()/12;
 
-minutes=((minutes%1440)+1440)%1440;
-
-let h=Math.floor(minutes/60);
-let m=minutes%60;
-
-let period=h>=12?"PM":"AM";
-
-let hour=h%12;
-
-if(hour===0)
-hour=12;
-
-return String(hour).padStart(2,"0")
-+":"+String(m).padStart(2,"0")
-+" "+period;
-
+    return 23.85
+        +
+        (year - 2000)
+        * 0.01396;
 }
 
 
 /* =====================================================
-   TITHI CALCULATION
+   SUN SIDEREAL LONGITUDE
+===================================================== */
+
+function sunLongitude(date){
+
+    const tropical =
+        Astronomy.EclipticLongitude(
+            "Sun",
+            date
+        );
+
+    return normalize360(
+        tropical
+        -
+        ayanamsha(date)
+    );
+}
+
+
+/* =====================================================
+   MOON SIDEREAL LONGITUDE
+===================================================== */
+
+function moonLongitude(date){
+
+    const tropical =
+        Astronomy.EclipticLongitude(
+            "Moon",
+            date
+        );
+
+    return normalize360(
+        tropical
+        -
+        ayanamsha(date)
+    );
+}
+
+
+/* =====================================================
+   TITHI DATA
 ===================================================== */
 
 function getTithi(date){
 
-const base=
-new Date("2026-04-15T00:00:00");
+    const sun =
+        sunLongitude(date);
 
-const dayNumber=
-Math.floor(
-(date-base)/86400000
-);
+    const moon =
+        moonLongitude(date);
 
-const index=
-Math.abs(dayNumber*7)%30;
+    const difference =
+        normalize360(
+            moon - sun
+        );
 
-const name=tithis[index];
+    const tithiNumber =
+        Math.floor(
+            difference / 12
+        );
 
-const endMinutes=
-18*60+
-((dayNumber*17)%300);
+    const paksha =
+        tithiNumber < 15
+        ? "শুক্লপক্ষ"
+        : "কৃষ্ণপক্ষ";
 
-return{
-name:name,
-end:endMinutes
-};
+    const localIndex =
+        tithiNumber % 15;
+
+    let name;
+
+    if(localIndex === 14){
+
+        name =
+            tithiNumber < 15
+            ? "পূর্ণিমা"
+            : "অমাবস্যা";
+
+    }else{
+
+        name =
+            tithiNames[localIndex];
+
+    }
+
+    return {
+
+        number:tithiNumber,
+
+        localIndex:localIndex,
+
+        name:name,
+
+        paksha:paksha,
+
+        angle:difference
+
+    };
 
 }
 
@@ -799,480 +1075,1227 @@ end:endMinutes
 
 function getNakshatra(date){
 
-const base=
-new Date("2026-04-15T00:00:00");
+    const moon =
+        moonLongitude(date);
 
-const dayNumber=
-Math.floor(
-(date-base)/86400000
-);
+    const span =
+        360 / 27;
 
-const index=
-Math.abs(dayNumber*3)
-%nakshatras.length;
+    const index =
+        Math.floor(
+            moon / span
+        );
 
-const endMinutes=
-8*60+
-((dayNumber*29)%900);
+    return {
 
-return{
-name:nakshatras[index],
-end:endMinutes
+        index:index,
+
+        name:
+            nakshatraNames[index],
+
+        longitude:moon
+
+    };
+
+}
+
+
+/* =====================================================
+   YOGA
+===================================================== */
+
+function getYoga(date){
+
+    const sun =
+        sunLongitude(date);
+
+    const moon =
+        moonLongitude(date);
+
+    const total =
+        normalize360(
+            sun + moon
+        );
+
+    const span =
+        360 / 27;
+
+    const index =
+        Math.floor(
+            total / span
+        );
+
+    return {
+
+        index:index,
+
+        name:
+            yogaNames[index],
+
+        total:total
+
+    };
+
+}
+
+
+/* =====================================================
+   KARANA
+===================================================== */
+
+function getKarana(date){
+
+    const sun =
+        sunLongitude(date);
+
+    const moon =
+        moonLongitude(date);
+
+    const difference =
+        normalize360(
+            moon - sun
+        );
+
+    const halfTithi =
+        Math.floor(
+            difference / 6
+        );
+
+    let name;
+
+    /*
+       Traditional repeating Karana order.
+    */
+
+    if(halfTithi === 0){
+
+        name =
+            "কিংস্তুঘ্ন";
+
+    }else if(
+        halfTithi >= 57
+    ){
+
+        const fixed = [
+
+            "শকুনি",
+            "চতুষ্পদ",
+            "নাগ"
+
+        ];
+
+        name =
+            fixed[
+                halfTithi - 57
+            ];
+
+    }else{
+
+        name =
+            karanaNames[
+                (halfTithi - 1) % 7
+            ];
+
+    }
+
+    return {
+
+        index:halfTithi,
+
+        name:name,
+
+        angle:difference
+
+    };
+
+}
+
+
+/* =====================================================
+   FORMAT TIME
+===================================================== */
+
+function formatTime(date){
+
+    if(!date){
+
+        return "—";
+
+    }
+
+    return new Intl.DateTimeFormat(
+        "bn-IN",
+        {
+
+            timeZone:
+                TIME_ZONE,
+
+            hour:"2-digit",
+
+            minute:"2-digit",
+
+            hour12:true
+
+        }
+    ).format(date);
+
+}
+
+
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
+function formatEnglishDate(date){
+
+    return new Intl.DateTimeFormat(
+        "en-IN",
+        {
+
+            timeZone:
+                TIME_ZONE,
+
+            weekday:"long",
+
+            day:"numeric",
+
+            month:"long",
+
+            year:"numeric"
+
+        }
+    ).format(date);
+
+}
+
+
+/* =====================================================
+   GET BENGALI DATE
+===================================================== */
+
+function getBengaliDate(date){
+
+    for(
+        let i=0;
+        i<bengaliMonths.length;
+        i++
+    ){
+
+        const month =
+            bengaliMonths[i];
+
+        const parts =
+            month.start.split("-");
+
+        const start =
+            new Date(
+                Number(parts[0]),
+                Number(parts[1])-1,
+                Number(parts[2]),
+                0,0,0
+            );
+
+        const end =
+            new Date(
+                start.getTime()
+                +
+                month.days
+                *
+                86400000
+            );
+
+
+        if(
+            date >= start &&
+            date < end
+        ){
+
+            const day =
+                Math.floor(
+                    (
+                        date.getTime()
+                        -
+                        start.getTime()
+                    )
+                    /
+                    86400000
+                )
+                + 1;
+
+
+            return {
+
+                day:day,
+
+                month:month.name,
+
+                year:month.year
+
+            };
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =====================================================
+   FIND TRANSITION
+===================================================== */
+
+function findTransition(
+    date,
+    type
+){
+
+    let currentValue;
+
+
+    function valueAt(d){
+
+        const sun =
+            sunLongitude(d);
+
+        const moon =
+            moonLongitude(d);
+
+
+        if(type === "tithi"){
+
+            return normalize360(
+                moon - sun
+            );
+
+        }
+
+
+        if(type === "nakshatra"){
+
+            return moon;
+
+        }
+
+
+        if(type === "yoga"){
+
+            return normalize360(
+                sun + moon
+            );
+
+        }
+
+
+        if(type === "karana"){
+
+            return normalize360(
+                moon - sun
+            );
+
+        }
+
+    }
+
+
+    const start =
+        new Date(
+            date.getTime()
+        );
+
+
+    currentValue =
+        valueAt(start);
+
+
+    let step =
+        5 * 60 * 1000;
+
+
+    let previous =
+        currentValue;
+
+
+    let previousDate =
+        start;
+
+
+    for(
+        let i=1;
+        i<=300;
+        i++
+    ){
+
+        const testDate =
+            new Date(
+                start.getTime()
+                +
+                i*step
+            );
+
+
+        const value =
+            valueAt(testDate);
+
+
+        let boundaryCrossed =
+            false;
+
+
+        if(
+            type === "tithi"
+            ||
+            type === "karana"
+        ){
+
+            const unit =
+                type === "tithi"
+                ? 12
+                : 6;
+
+
+            const oldBucket =
+                Math.floor(
+                    previous / unit
+                );
+
+
+            const newBucket =
+                Math.floor(
+                    value / unit
+                );
+
+
+            if(
+                oldBucket !==
+                newBucket
+            ){
+
+                boundaryCrossed =
+                    true;
+
+            }
+
+        }
+
+
+        if(
+            type === "nakshatra"
+        ){
+
+            const span =
+                360/27;
+
+
+            if(
+                Math.floor(
+                    previous/span
+                )
+                !==
+                Math.floor(
+                    value/span
+                )
+            ){
+
+                boundaryCrossed =
+                    true;
+
+            }
+
+        }
+
+
+        if(
+            type === "yoga"
+        ){
+
+            const span =
+                360/27;
+
+
+            if(
+                Math.floor(
+                    previous/span
+                )
+                !==
+                Math.floor(
+                    value/span
+                )
+            ){
+
+                boundaryCrossed =
+                    true;
+
+            }
+
+        }
+
+
+        if(
+            boundaryCrossed
+        ){
+
+            /*
+               Binary refinement.
+            */
+
+            let low =
+                previousDate;
+
+            let high =
+                testDate;
+
+
+            for(
+                let j=0;
+                j<10;
+                j++
+            ){
+
+                const middle =
+                    new Date(
+                        (
+                            low.getTime()
+                            +
+                            high.getTime()
+                        ) / 2
+                    );
+
+
+                const middleValue =
+                    valueAt(middle);
+
+
+                let sameBucket;
+
+
+                if(
+                    type === "tithi"
+                    ||
+                    type === "karana"
+                ){
+
+                    const unit =
+                        type === "tithi"
+                        ? 12
+                        : 6;
+
+
+                    sameBucket =
+                        Math.floor(
+                            middleValue/unit
+                        )
+                        ===
+                        Math.floor(
+                            previous/unit
+                        );
+
+                }
+                else{
+
+                    const span =
+                        360/27;
+
+
+                    sameBucket =
+                        Math.floor(
+                            middleValue/span
+                        )
+                        ===
+                        Math.floor(
+                            previous/span
+                        );
+
+                }
+
+
+                if(sameBucket){
+
+                    low =
+                        middle;
+
+                }else{
+
+                    high =
+                        middle;
+
+                }
+
+            }
+
+
+            return high;
+
+        }
+
+
+        previous =
+            value;
+
+        previousDate =
+            testDate;
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =====================================================
+   RISE / SET
+===================================================== */
+
+function getRiseSet(date){
+
+    const observer =
+        new Astronomy.Observer(
+            LATITUDE,
+            LONGITUDE,
+            ELEVATION
+        );
+
+
+    /*
+       Search from midnight UTC
+       around the selected local date.
+    */
+
+    const start =
+        new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate(),
+            0,0,0
+        );
+
+
+    let sunrise = null;
+    let sunset = null;
+    let moonrise = null;
+    let moonset = null;
+
+
+    try{
+
+        const sr =
+            Astronomy.SearchRiseSet(
+                "Sun",
+                observer,
+                +1,
+                start,
+                1
+            );
+
+        if(sr){
+            sunrise =
+                sr.date;
+        }
+
+    }catch(e){}
+
+
+    try{
+
+        const ss =
+            Astronomy.SearchRiseSet(
+                "Sun",
+                observer,
+                -1,
+                start,
+                1
+            );
+
+        if(ss){
+            sunset =
+                ss.date;
+        }
+
+    }catch(e){}
+
+
+    try{
+
+        const mr =
+            Astronomy.SearchRiseSet(
+                "Moon",
+                observer,
+                +1,
+                start,
+                1
+            );
+
+        if(mr){
+            moonrise =
+                mr.date;
+        }
+
+    }catch(e){}
+
+
+    try{
+
+        const ms =
+            Astronomy.SearchRiseSet(
+                "Moon",
+                observer,
+                -1,
+                start,
+                1
+            );
+
+        if(ms){
+            moonset =
+                ms.date;
+        }
+
+    }catch(e){}
+
+
+    return {
+
+        sunrise:sunrise,
+
+        sunset:sunset,
+
+        moonrise:moonrise,
+
+        moonset:moonset
+
+    };
+
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function render(){
+
+    const date =
+        selectedDate;
+
+
+    /* =========================
+       DATE
+    ========================= */
+
+    const bengali =
+        getBengaliDate(date);
+
+
+    if(bengali){
+
+        document.getElementById(
+            "bengaliDate"
+        ).innerHTML =
+
+            `${bengali.month}
+             ${bnNumber(bengali.day)}
+             •
+             ${bnNumber(bengali.year)}`;
+
+    }else{
+
+        document.getElementById(
+            "bengaliDate"
+        ).innerHTML =
+            "বাংলা তারিখ";
+
+    }
+
+
+    document.getElementById(
+        "englishDate"
+    ).textContent =
+        formatEnglishDate(date);
+
+
+    /* =========================
+       PANCHANG
+    ========================= */
+
+    const tithi =
+        getTithi(date);
+
+    const nakshatra =
+        getNakshatra(date);
+
+    const yoga =
+        getYoga(date);
+
+    const karana =
+        getKarana(date);
+
+
+    /* =========================
+       TRANSITIONS
+    ========================= */
+
+    const tithiEnd =
+        findTransition(
+            date,
+            "tithi"
+        );
+
+    const nakshatraEnd =
+        findTransition(
+            date,
+            "nakshatra"
+        );
+
+    const yogaEnd =
+        findTransition(
+            date,
+            "yoga"
+        );
+
+    const karanaEnd =
+        findTransition(
+            date,
+            "karana"
+        );
+
+
+    /* =========================
+       SPECIAL SYMBOL
+    ========================= */
+
+    let tithiSymbol = "";
+
+    if(
+        tithi.name === "পূর্ণিমা"
+    ){
+
+        tithiSymbol =
+            "🌕 ";
+
+    }
+
+    else if(
+        tithi.name === "অমাবস্যা"
+    ){
+
+        tithiSymbol =
+            "🌑 ";
+
+    }
+
+    else if(
+        tithi.name === "একাদশী"
+    ){
+
+        tithiSymbol =
+            "🪔 ";
+
+    }
+
+
+    /* =========================
+       PANCHANG HTML
+    ========================= */
+
+    document.getElementById(
+        "panchangContent"
+    ).innerHTML = `
+
+        <div class="panchang-grid">
+
+
+            <div class="panchang-item">
+
+                <div class="panchang-icon">
+                    📅
+                </div>
+
+                <div class="panchang-label">
+                    বার
+                </div>
+
+                <div class="panchang-value">
+                    ${bengaliWeekdays[
+                        date.getDay()
+                    ]}
+                </div>
+
+            </div>
+
+
+            <div class="panchang-item">
+
+                <div class="panchang-icon">
+                    🌙
+                </div>
+
+                <div class="panchang-label">
+                    তিথি
+                </div>
+
+                <div class="panchang-value">
+                    ${tithiSymbol}
+                    ${tithi.name}
+                </div>
+
+                <div class="panchang-end">
+                    শেষ:
+                    ${formatTime(tithiEnd)}
+                </div>
+
+            </div>
+
+
+            <div class="panchang-item">
+
+                <div class="panchang-icon">
+                    ⭐
+                </div>
+
+                <div class="panchang-label">
+                    নক্ষত্র
+                </div>
+
+                <div class="panchang-value">
+                    ${nakshatra.name}
+                </div>
+
+                <div class="panchang-end">
+                    শেষ:
+                    ${formatTime(nakshatraEnd)}
+                </div>
+
+            </div>
+
+
+            <div class="panchang-item">
+
+                <div class="panchang-icon">
+                    🕉️
+                </div>
+
+                <div class="panchang-label">
+                    যোগ
+                </div>
+
+                <div class="panchang-value">
+                    ${yoga.name}
+                </div>
+
+                <div class="panchang-end">
+                    শেষ:
+                    ${formatTime(yogaEnd)}
+                </div>
+
+            </div>
+
+
+            <div class="panchang-item">
+
+                <div class="panchang-icon">
+                    🔱
+                </div>
+
+                <div class="panchang-label">
+                    করণ
+                </div>
+
+                <div class="panchang-value">
+                    ${karana.name}
+                </div>
+
+                <div class="panchang-end">
+                    শেষ:
+                    ${formatTime(karanaEnd)}
+                </div>
+
+            </div>
+
+
+            <div class="panchang-item">
+
+                <div class="panchang-icon">
+                    🌗
+                </div>
+
+                <div class="panchang-label">
+                    পক্ষ
+                </div>
+
+                <div class="panchang-value">
+                    ${tithi.paksha}
+                </div>
+
+            </div>
+
+
+        </div>
+
+        ${
+            tithi.name === "পূর্ণিমা"
+            ? `
+                <div class="special-day">
+                    🌕 পূর্ণিমা
+                </div>
+              `
+            : ""
+        }
+
+        ${
+            tithi.name === "অমাবস্যা"
+            ? `
+                <div class="special-day">
+                    🌑 অমাবস্যা
+                </div>
+              `
+            : ""
+        }
+
+    `;
+
+
+    /* =========================
+       RISE / SET
+    ========================= */
+
+    const riseSet =
+        getRiseSet(date);
+
+
+    document.getElementById(
+        "sunMoonContent"
+    ).innerHTML = `
+
+        <div class="sunmoon-grid">
+
+
+            <div class="sunmoon-item">
+
+                <div class="sunmoon-icon">
+                    🌅
+                </div>
+
+                <div class="sunmoon-label">
+                    সূর্যোদয়
+                </div>
+
+                <div class="sunmoon-time">
+                    ${formatTime(
+                        riseSet.sunrise
+                    )}
+                </div>
+
+            </div>
+
+
+            <div class="sunmoon-item">
+
+                <div class="sunmoon-icon">
+                    🌇
+                </div>
+
+                <div class="sunmoon-label">
+                    সূর্যাস্ত
+                </div>
+
+                <div class="sunmoon-time">
+                    ${formatTime(
+                        riseSet.sunset
+                    )}
+                </div>
+
+            </div>
+
+
+            <div class="sunmoon-item">
+
+                <div class="sunmoon-icon">
+                    🌙
+                </div>
+
+                <div class="sunmoon-label">
+                    চন্দ্রোদয়
+                </div>
+
+                <div class="sunmoon-time">
+                    ${formatTime(
+                        riseSet.moonrise
+                    )}
+                </div>
+
+            </div>
+
+
+            <div class="sunmoon-item">
+
+                <div class="sunmoon-icon">
+                    🌘
+                </div>
+
+                <div class="sunmoon-label">
+                    চন্দ্রাস্ত
+                </div>
+
+                <div class="sunmoon-time">
+                    ${formatTime(
+                        riseSet.moonset
+                    )}
+                </div>
+
+            </div>
+
+
+        </div>
+
+    `;
+
+
+    /* =========================
+       ASTRONOMICAL DETAILS
+    ========================= */
+
+    document.getElementById(
+        "astronomyDetails"
+    ).innerHTML = `
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                ☀️ সূর্যের সায়ন দ্রাঘিমা
+            </span>
+
+            <span class="detail-value">
+                ${sunLongitude(date)
+                    .toFixed(2)}°
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                🌙 চন্দ্রের সায়ন দ্রাঘিমা
+            </span>
+
+            <span class="detail-value">
+                ${moonLongitude(date)
+                    .toFixed(2)}°
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                🌙 তিথি কোণ
+            </span>
+
+            <span class="detail-value">
+                ${tithi.angle
+                    .toFixed(2)}°
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                ⭐ নক্ষত্র
+            </span>
+
+            <span class="detail-value">
+                ${nakshatra.name}
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                🕉️ যোগ
+            </span>
+
+            <span class="detail-value">
+                ${yoga.name}
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                🔱 করণ
+            </span>
+
+            <span class="detail-value">
+                ${karana.name}
+            </span>
+
+        </div>
+
+
+    `;
+
+}
+
+
+/* =====================================================
+   PREVIOUS DAY
+===================================================== */
+
+document.getElementById(
+    "previousDay"
+).onclick = function(){
+
+    selectedDate.setDate(
+        selectedDate.getDate() - 1
+    );
+
+    render();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
 };
 
-}
-
 
 /* =====================================================
-   SHUBHKARMA HTML
+   NEXT DAY
 ===================================================== */
 
-function createShubhkarma(index){
-
-const labels=[
-
-["💍","বিবাহ"],
-["🟡","গাত্রহরিদ্রা"],
-["🍚","অন্নপ্রাশন"],
-["🏠","গৃহপ্রবেশ"],
-["🕉️","উপনয়ন"],
-["✏️","বিদ্যারম্ভ"],
-["👶","নামকরণ"],
-["🌿","সাধভক্ষণ"]
-
-];
-
-let html=`
-
-<div class="shubhkarma">
-
-<div class="shubh-title">
-🌸 শুভকর্ম
-</div>
-`;
-
-labels.forEach(item=>{
-
-const icon=item[0];
-const name=item[1];
-
-const dates=
-shubhkarma[name][index] || [];
-
-const text=dates.length
-?dates.map(d=>bnNumber(d)).join(" / ")
-:"—";
-
-html+=`
-
-<div class="shubh-row">
-${icon} <strong>${name}:</strong> ${text}
-</div>
-
-`;
-
-});
-
-html+=`</div>`;
-
-return html;
-
-}
-
-
-/* =====================================================
-   CURRENT MONTH
-===================================================== */
-
-let currentMonthIndex=0;
-
-
-/* =====================================================
-   RENDER MONTH
-===================================================== */
-
-function renderMonth(){
-
-const container=
 document.getElementById(
-"calendarContainer"
-);
+    "nextDay"
+).onclick = function(){
 
-const month=
-months[currentMonthIndex];
+    selectedDate.setDate(
+        selectedDate.getDate() + 1
+    );
 
+    render();
 
-/* CLEAR OLD MONTH */
-
-container.innerHTML="";
-
-
-/* CREATE CARD */
-
-const card=
-document.createElement("div");
-
-card.className="month-card";
-
-
-/* HEADER */
-
-const header=
-document.createElement("div");
-
-header.className="month-header";
-
-header.innerHTML=`
-
-<button
-class="month-nav"
-id="prevBtn">
-‹
-</button>
-
-<div class="month-name">
-
-${month.name}
-${bnNumber(month.year)}
-
-<small>
-• ${month.english}
-(${month.englishRange})
-</small>
-
-</div>
-
-<button
-class="month-nav"
-id="nextBtn">
-›
-</button>
-
-`;
-
-card.appendChild(header);
-
-
-/* NOW BUTTONS EXIST */
-
-const prevBtn=
-header.querySelector("#prevBtn");
-
-const nextBtn=
-header.querySelector("#nextBtn");
-
-
-prevBtn.onclick=function(){
-
-previousMonth();
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 };
-
-
-nextBtn.onclick=function(){
-
-nextMonth();
-
-};
-
-
-if(currentMonthIndex===0){
-
-prevBtn.disabled=true;
-
-}
-
-if(
-currentMonthIndex===
-months.length-1
-){
-
-nextBtn.disabled=true;
-
-}
-
-
-/* SHUBHKARMA */
-
-card.insertAdjacentHTML(
-"beforeend",
-createShubhkarma(
-currentMonthIndex
-)
-);
-
-
-/* WEEKDAYS */
-
-const weekdayRow=
-document.createElement("div");
-
-weekdayRow.className="weekdays";
-
-weekdays.forEach(day=>{
-
-const cell=
-document.createElement("div");
-
-cell.className="weekday";
-
-cell.textContent=day;
-
-weekdayRow.appendChild(cell);
-
-});
-
-card.appendChild(weekdayRow);
-
-
-/* CALENDAR */
-
-const calendar=
-document.createElement("div");
-
-calendar.className="calendar";
-
-
-const startDate=
-new Date(
-month.start+"T00:00:00"
-);
-
-
-const firstDay=
-startDate.getDay();
-
-
-/* EMPTY CELLS */
-
-for(
-let i=0;
-i<firstDay;
-i++
-){
-
-const empty=
-document.createElement("div");
-
-empty.className="empty-cell";
-
-calendar.appendChild(empty);
-
-}
-
-
-/* DATES */
-
-for(
-let day=1;
-day<=month.days;
-day++
-){
-
-const date=
-new Date(startDate);
-
-date.setDate(
-startDate.getDate()+day-1
-);
-
-
-const tithi=
-getTithi(date);
-
-
-const box=
-document.createElement("div");
-
-box.className="day-box";
-
-
-box.innerHTML=`
-
-<div class="date-line">
-
-<span class="bengali-date">
-${bnNumber(day)}
-</span>
-
-<span class="english-date">
-${date.getDate()}
-</span>
-
-</div>
-
-<div class="tithi-name">
-${specialTithi(tithi.name)}
-</div>
-
-<div class="tithi-time">
-শেষ ${formatTime(tithi.end)}
-</div>
-
-`;
-
-
-box.onclick=function(){
-
-document
-.querySelectorAll(".day-box.selected")
-.forEach(b=>{
-b.classList.remove("selected");
-});
-
-box.classList.add("selected");
-
-showDateDetails(
-date,
-month,
-day,
-tithi
-);
-
-};
-
-
-calendar.appendChild(box);
-
-}
-
-
-card.appendChild(calendar);
-
-
-/* PUT COMPLETE CARD ON PAGE */
-
-container.appendChild(card);
-
-
-/* HIDE OLD DETAILS */
-
-document
-.getElementById("details")
-.classList.remove("show");
-
-}
-
-
-/* =====================================================
-   NEXT
-===================================================== */
-
-function nextMonth(){
-
-if(
-currentMonthIndex<
-months.length-1
-){
-
-currentMonthIndex++;
-
-renderMonth();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-}
-
-
-/* =====================================================
-   PREVIOUS
-===================================================== */
-
-function previousMonth(){
-
-if(
-currentMonthIndex>0
-){
-
-currentMonthIndex--;
-
-renderMonth();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-}
-
-
-/* =====================================================
-   DATE DETAILS
-===================================================== */
-
-function showDateDetails(
-date,
-month,
-day,
-tithi
-){
-
-const details=
-document.getElementById(
-"details"
-);
-
-const nak=
-getNakshatra(date);
-
-details.classList.add("show");
-
-
-document.getElementById(
-"muhurtaDetails"
-).innerHTML=`
-
-<b>
-${month.name}
-${bnNumber(day)}
-${bnNumber(month.year)}
-</b>
-
-<br>
-
-তিথি:
-${specialTithi(tithi.name)}
-
-<br>
-
-তিথি শেষ:
-${formatTime(tithi.end)}
-
-`;
-
-
-document.getElementById(
-"nakshatraName"
-).innerHTML=
-"<b>"+nak.name+"</b>";
-
-
-document.getElementById(
-"nakshatraEnd"
-).textContent=
-"শেষ "+formatTime(nak.end);
-
-
-details.scrollIntoView({
-behavior:"smooth",
-block:"nearest"
-});
-
-}
 
 
 /* =====================================================
    START
 ===================================================== */
 
-renderMonth();
+render();
 
 </script>
 
